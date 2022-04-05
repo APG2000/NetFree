@@ -74,6 +74,7 @@ function tmdbImage(name, type, getVideo) {
                         },
                         error: function (err) {
                             console.clear()
+                            
                         }
                     });
                 
