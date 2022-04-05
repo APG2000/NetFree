@@ -42,6 +42,7 @@ function tmdbImage(name, type, getVideo) {
                 var img = api_img_url + image_path;
                 //console.log('TMDb image: ', img);
                 if (image_path) {
+                    
                     document.getElementById(query).setAttribute("src", img);
                 }
                 else {
