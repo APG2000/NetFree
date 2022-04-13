@@ -9,9 +9,9 @@
             <div class="carousel-inner" data-bind="foreach: records">
                 <!-- ko ifnot: backdrop_path == null -->
                 <div class="carousel-item" data-bind="css: { 'active': $index() == 0 }">
-                    <img class="d-block w-100" data-bind="attr: { src: api_img_url + backdrop_path, alt: original_title }" />
-                    <div class="carousel-caption d-none d-md-block">
-                        <img style="height: 400px" data-bind="attr: { src: api_img_url + poster_path, alt: original_title }" />
+                    <img class="" data-bind="attr: { src: api_img_url + backdrop_path, alt: original_title }" />
+                    <div class="carousel-caption ">
+                        <img style="height: 100px" data-bind="attr: { src: api_img_url + poster_path, alt: original_title }" />
                         <hr class="border-bottom-muted" />
                         <h5 data-bind="text: original_title"></h5>
                         <p>

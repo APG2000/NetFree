@@ -127,7 +127,7 @@ a:focus {
 }
 
 .carousel-item > img {
-    filter: blur(8px);
+    filter: blur(0px);
 }
 
 .carousel-item:after {
