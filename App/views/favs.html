@@ -6,13 +6,15 @@
             <thead class="thead">
                 <tr>
                     
-                    <th scope="col" align="center">Favoritos  </th>
+                    <th scope="col" >Favoritos  </th>
                   
-                    
-                   
+                 
                     
                 </tr>
+            
+                
             </thead>
+            
             <tbody data-bind="foreach: favs">
                 
                 
@@ -41,7 +43,8 @@
                 </tr>
             </tbody>
         </table>
-    
+        
+        <a id="clear"  class="btn btn-link"" style="background-color:red;"  onclick="cleanfav()"> Deletar todos</a>
 
        
     </div>

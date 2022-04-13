@@ -104,7 +104,6 @@ function getTMDbSlug(name) {
 }
 
 
-
 function tmdbBackdrop(name, getVideo) {
 
     var query = getTMDbSlug(name);

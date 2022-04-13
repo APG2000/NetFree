@@ -3,18 +3,16 @@ define(['durandal/app'], function (app) {
         console.log('ViewModel initiated...');
  
 
-        var basiurl= "http://192.168.160.58/netflix/api/Titles/"
 
         var self = this;
-        var url=document.URL
-       
-        console.clear()
+   
+       // console.clear()
        
         var dict = []
        // var favs = [];
         //console.log(localStorage)
        
-
+     
        
         Object.keys(localStorage).forEach(function(key){
             if(localStorage.getItem(key)!="index.html#favs"){
@@ -33,19 +31,23 @@ define(['durandal/app'], function (app) {
          self.favs=ko.observableArray([]);
          self.favs(dict)
        
-         
       
-        
-        
-        // start ....
-        
+
+
+         
+       
      
     
     };
+
+    
+    
   
 
    
-    
 
     return vm
+
+ 
+  
 });

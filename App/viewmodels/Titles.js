@@ -119,6 +119,7 @@ define(['durandal/app'], function (app) {
           
            
         }
+
         
         };
         self.showMessage=function() {

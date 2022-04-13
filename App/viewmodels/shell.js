@@ -36,6 +36,8 @@
                 { route: 'SearchTitles(/:id)', title: 'Search Titles', moduleId: 'viewmodels/SearchTitles', hash: '#SearchTitles', nav: true}
 
             ]).buildNavigationModel();
+
+            
             
             return router.activate();
         }

@@ -108,6 +108,7 @@ function getIMDbIndex(data, name) {
 }
 
 function getIMDbImage(data, index) {
+
     return data.d[index].i[0];
 }
 
@@ -129,6 +130,17 @@ function hideLoading() {
 
 
 
+function cleanfav(){
+
+    
+  
+   localStorage.clear()
+
+      location.reload();
+
+
+    console.log(localStorage.length)
+}
 function myFunction(id,name) {
     
 
@@ -174,6 +186,7 @@ function favinfo(name){
 
     window.location = elements.href;
 }
+
 
 
 

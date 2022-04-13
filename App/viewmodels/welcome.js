@@ -18,8 +18,10 @@
                 self.records(data.results);
 
                 //console.log('records: ', records());
+                
 
             });
+            
             hideLoading();
         };
 
@@ -32,6 +34,8 @@
         return d.getFullYear().pad(4);
     }
 
+
+   
     return page;
 
 });
