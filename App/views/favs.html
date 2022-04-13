@@ -1,0 +1,51 @@
+<section>
+
+  
+    <div class="container" align="center">
+        <table class="table text-light">
+            <thead class="thead">
+                <tr>
+                    
+                    <th scope="col" align="center">Favoritos  </th>
+                  
+                    
+                   
+                    
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: favs">
+                
+                
+                <tr class="t-row">
+                    <td class="">
+                       
+                                
+                  
+                        <a  class="btn btn-link" >
+                            <span data-bind="text:name"></span>
+                        </a>
+                        
+                        <a  data-bind="attr: {  name:name}" class="btn btn-link" onclick="favinfo(name)">
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                        </a>
+                        <a  data-bind="attr: {  name:name}" class="btn btn-link" onclick="remove(name)">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+    
+                        </a>
+               
+                    </td>
+    
+                  
+    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+       
+    </div>
+
+   
+
+</section>

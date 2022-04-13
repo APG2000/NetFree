@@ -27,6 +27,18 @@ define(['durandal/app'], function (app) {
                     hideLoading();
 
                     self.records(data);
+                    for (var i = 0; i < localStorage.length; i++){
+
+                        var id=localStorage.getItem(localStorage.key(i))
+                        var icon=document.getElementById("ic"+id)
+                        console.log(icon)
+                        
+                        if(icon!=null){
+                            icon.style.color="red"
+                        }
+                      
+                       
+                    }
                 }
             });
         }
@@ -39,11 +51,16 @@ define(['durandal/app'], function (app) {
 
             if (typeName == 'TV Show') type = 'tv';
 
-            tmdbImage(name, type, false);
+           tmdbImage(name, type, false);
+
+            
         };
+      
+
+      
 
         self.activate = function () {
-            self.first(true);
+           self.first(true);
         }
     };
     return vm

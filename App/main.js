@@ -125,6 +125,58 @@ function hideLoading() {
     
 }
 
+//filmes favoritos
+
+
+
+function myFunction(id,name) {
+    
+
+ 
+    var dict = []
+   // var favs = [];
+   var icon=document.getElementById("ic"+id)
+   
+   if(localStorage.getItem(name)==null){
+       console.log("Adicionando a favorito")
+       icon.style.color="red"
+       localStorage.setItem(name , id);
+
+
+       console.log(icon)
+   }
+   else if(localStorage.getItem(name)!=null){
+         localStorage.removeItem(name);
+       console.log("Removido do Favorito ")
+       icon.style.color="white"
+   }
+    
+
+
+  
+  
+    }
+
+function remove(name){
+
+    localStorage.removeItem(name);
+
+    location.reload();
+}
+
+function favinfo(name){
+  
+
+    let elements = document.getElementsByName(name);
+    id=localStorage.getItem(name)
+    elements.href="#TitleDetails/"+id
+    console.log(elements.href)
+
+    window.location = elements.href;
+}
+
+
+
 Number.prototype.pad = function (size) {
     var s = String(this);
     while (s.length < (size || 2)) { s = "0" + s; }

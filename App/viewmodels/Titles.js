@@ -74,6 +74,7 @@ define(['durandal/app'], function (app) {
                 hideLoading();
 
                 self.records(data.Titles);
+                //console.log(data.Titles)        
                 self.currentPage(data.CurrentPage);
                 self.hasNext(data.HasNext);
                 self.hasPrevious(data.HasPrevious);
@@ -83,7 +84,9 @@ define(['durandal/app'], function (app) {
                 //self.SetFavourites();
 
             });
+       
             hideLoading();
+        
         };
 
         self.getPoster = function (name, typeName) {
@@ -94,17 +97,54 @@ define(['durandal/app'], function (app) {
 
             if (typeName == 'TV Show') type = 'tv';
 
-           tmdbImage(name, type, true);
-        };
+            
+
+          
+
+      
         
+  
+   
+        tmdbImage(name, type, true);
+
+        for (var i = 0; i < localStorage.length; i++){
+
+            var id=localStorage.getItem(localStorage.key(i))
+            var icon=document.getElementById("ic"+id)
+            console.log(icon)
+            
+            if(icon!=null){
+                icon.style.color="red"
+            }
+          
+           
+        }
+        
+        };
+        self.showMessage=function() {
+            console.log(12)
+           
+         };
 
         // start ....
         var pg = getUrlParameter('page');
         console.log("pg", pg);
         if (pg == undefined)
             self.activate(1);
-    };
+            
+      
+            
+        };
 
+        
+  
+  
+   
+
+      
     
     return vm
+
+
+  
 });

@@ -14,6 +14,9 @@
                
                 { route: 'Titles', title: 'Titles', moduleId: 'viewmodels/Titles', nav: true },
                 { route: 'Titles(/:id)', title: 'Titles', moduleId: 'viewmodels/Titles', hash: '#Titles', nav: false },
+
+                { route: 'favs', title: 'favs', moduleId: 'viewmodels/favs', nav: true },
+                { route: 'favs(/:id)', title: 'favs', moduleId: 'viewmodels/favs', hash: '#favs', nav: false },
                 
                 { route: 'Actors', title: 'Actors', moduleId: 'viewmodels/Actors', nav: true },
                 { route: 'Actors(/:id)', title: 'Actors', moduleId: 'viewmodels/Actors', hash: '#Actors', nav: false },
