@@ -3,11 +3,11 @@
 <section>
     <div class="container details">
         <div class="pt-4 pb-1 mb-3">
-            <h2 data-bind="text:displayName"></h2>
+            <h2 data-bind="text:displayName" style="text-align: center;" ></h2>
             <h1 data-bind="text: name()"></h1>
             <div data-bind="with: type">
                 <h4 class="d-inline-block">
-                    <span data-bind="text: Name"></span> - <span data-bind="text: $parent.releaseYear"></span>
+                    <span data-bind="text: Name"></span> <span data-bind="text: $parent.releaseYear"></span>
                 </h4>
             </div>
         </div>
@@ -99,11 +99,23 @@
         <div data-bind="foreach: categories">
             <div>
                 <i class="icon mr-1 fa fa-bookmark-o"></i>
-                <span data-bind="text: Name + '', attr: { href: '#ActorDetails/'+Id }"></span>
+                <span data-bind="text: Name "></span>
+                
             </div>
         </div>
-
+         <!-- /ko -->
+        <!-- ko if:categoria().length > 0 -->
+         <h6>Categories</h6>
+         <div data-bind="foreach: categoria">
+             <div>
+                 <i class="icon mr-1 fa fa-bookmark-o"></i>
+                 <span data-bind="text: name "></span>
+                 
+             </div>
+         </div>
+     
         <hr class="border-bottom-muted" />
+        
         <!-- /ko -->
         <!-- ko if:countries().length > 0 -->
         <h6>Countries</h6>
@@ -136,5 +148,46 @@
         <span data-bind="text: rating().Code"></span>
         <!-- /ko -->
         <!-- /ko -->
+    </div>
+
+    <di>
+        <h1 id="displayvideos" style="text-align: center; visibility: hidden;">
+            Videos
+        </h1>
+        <br>
+    </di>
+    <div class="cards" data-bind="foreach: videos">
+
+        <div class="card ">
+           
+           
+           
+
+            <iframe  data-bind="attr: { src:'https://www.youtube.com/embed/'+key} " allowfullscreen>
+            </iframe>
+           
+
+            <div class="card-body " >
+                
+                
+
+               
+                <p class="card-text" >
+                    <h5 data-bind="text:name"></h5>
+                       
+                   
+                </p>
+
+              </div>
+
+
+
+        </div>
+        
+
+
+    </div>
+
+
     </div>
 </section>

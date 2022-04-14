@@ -50,6 +50,8 @@ function getIMDbURL(name) {
     name = getIMDbSlug(name);
     return imdb_api_url + name[0] + "/" + name + ".json";
 }
+
+
 function getIMDbSlug(title) {
     return title.trim().normalize("NFKD").replaceAll(/[^\-\w\s]/gi, '').trim().replaceAll(' ', '-').toLowerCase();
 }
@@ -141,6 +143,11 @@ function cleanfav(){
 
     console.log(localStorage.length)
 }
+
+function welcomef(id){
+    console.log(id)
+   
+}
 function myFunction(id,name) {
     
 
@@ -155,7 +162,7 @@ function myFunction(id,name) {
        localStorage.setItem(name , id);
 
 
-       console.log(icon)
+     
    }
    else if(localStorage.getItem(name)!=null){
          localStorage.removeItem(name);
@@ -166,7 +173,23 @@ function myFunction(id,name) {
 
 
   
-  
+    }
+    function showfav(){
+        console.clear()
+        console.log("show all favs")
+
+        for (var i = 0; i < localStorage.length; i++){
+
+            var id=localStorage.getItem(localStorage.key(i))
+            var icon=document.getElementById("ic"+id)
+            
+            if(icon!=null){
+                icon.style.color="red"
+            }
+          
+           
+        }
+
     }
 
 function remove(name){
@@ -186,7 +209,6 @@ function favinfo(name){
 
     window.location = elements.href;
 }
-
 
 
 

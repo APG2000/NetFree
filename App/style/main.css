@@ -140,3 +140,16 @@ a:focus {
     right: 0;
     background: rgba(0,0,0,0.8);
 }
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+    minmax(200px,1fr));
+    gap: 20px;
+}
+
+.card{
+
+    background-color: #222;
+}
+

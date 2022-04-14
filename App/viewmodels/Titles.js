@@ -111,7 +111,6 @@ define(['durandal/app'], function (app) {
 
             var id=localStorage.getItem(localStorage.key(i))
             var icon=document.getElementById("ic"+id)
-            console.log(icon)
             
             if(icon!=null){
                 icon.style.color="red"
@@ -142,7 +141,6 @@ define(['durandal/app'], function (app) {
   
    
 
-      
     
     return vm
 
