@@ -60,7 +60,7 @@ define(['durandal/app'], function (app) {
                       }
 
                     hideLoading();
-              
+                    showfav()
                     
                 }
             });
@@ -73,7 +73,7 @@ define(['durandal/app'], function (app) {
       
         self.activate = function () {
            self.first(true);
-          
+         
         }
 
     };

@@ -16,8 +16,8 @@
 
                 hideLoading();
                 self.records(data.results);
+
             });
-            
             hideLoading();
 
             
@@ -29,6 +29,7 @@
 
        
         self.activate();
+
         console.clear()
 
     
