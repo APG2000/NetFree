@@ -153,3 +153,10 @@ a:focus {
     background-color: #222;
 }
 
+.card:hover{
+
+    
+    background-color:red;
+    border: 10cm;
+}
+

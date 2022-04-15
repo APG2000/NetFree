@@ -144,10 +144,7 @@ function cleanfav(){
     console.log(localStorage.length)
 }
 
-function welcomef(id){
-    console.log(id)
-   
-}
+
 function myFunction(id,name,any) {
     
 
@@ -155,7 +152,7 @@ function myFunction(id,name,any) {
    
    if(localStorage.getItem(name)==null){
        console.log("Adicionando a favorito")
-       icon.style.color="red"
+       icon.style.color="purple"
        localStorage.setItem(name , id+'/'+any);
 
 
@@ -182,7 +179,7 @@ function myFunction(id,name,any) {
             
             //console.log(icon)
             if(icon!=null){
-                icon.style.color="red"
+                icon.style.color="purple"
             }
           
            
@@ -210,7 +207,34 @@ function favinfo(name){
 }
 
 
+function cardhide(id){
+    var nothide=id
+    for(var  i in this.records()){
+        if("card"+this.records()[i].id==nothide){
+        }
+        else{
+            var elem=document.getElementById("card"+this.records()[i].id)
+                elem.style.opacity=".4"
+            
+            //console.log(this.records()[i].id)
+        }
+       
+    }
 
+
+
+}
+
+
+
+function cardshow(id){
+    var nothide=id
+    for(var  i in this.records()){
+
+            var elem=document.getElementById("card"+this.records()[i].id)
+            elem.style.opacity=""   
+    }
+}
 
 Number.prototype.pad = function (size) {
     var s = String(this);

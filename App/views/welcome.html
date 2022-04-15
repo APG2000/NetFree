@@ -19,7 +19,7 @@
 
     <div class="cards" data-bind="foreach: records">
         
-        <div class="card ">
+        <div class="card "   data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)">
 
             
             <img  onclick="location.href='#TitleDetails/'+id;" style="height: 350px" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
@@ -32,7 +32,7 @@
                         <br>
                     <i class="fa fa-star" data-bind="text:vote_average" aria-hidden="true"></i>
                     
-                    <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')">
+                    <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')"    >
                         
                         <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>
                     
