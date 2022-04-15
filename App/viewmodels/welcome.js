@@ -29,7 +29,8 @@
 
        
         self.activate();
- 
+        console.clear()
+
     
 
     
@@ -42,7 +43,6 @@
     }
 
  
-   
    
     return page;
 

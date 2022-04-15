@@ -19,18 +19,17 @@ define(['durandal/app'], function (app) {
                
 
                
-                    dict.push({ name: key  })
-                    //console.log(key)
-                    //dict.push({id:localStorage.getItem(key)})
+                    dict.push({ name: key })
+                    
+                 
                    
             }
         
            
          });
-      
          self.favs=ko.observableArray([]);
          self.favs(dict)
-       
+        
       
 
 

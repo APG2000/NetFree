@@ -73,7 +73,7 @@ function tmdbImage(name, type, getVideo) {
 
                         },
                         error: function (err) {
-                            console.clear()
+                         //   console.clear()
                             
                         }
                     });
@@ -91,7 +91,7 @@ function tmdbImage(name, type, getVideo) {
 
         },
         error: function (err) {
-            console.clear()
+           // console.clear()
         }
   
     });

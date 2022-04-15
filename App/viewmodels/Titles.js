@@ -110,8 +110,8 @@ define(['durandal/app'], function (app) {
         for (var i = 0; i < localStorage.length; i++){
 
             var id=localStorage.getItem(localStorage.key(i))
-            var icon=document.getElementById("ic"+id)
-            
+            var fixid=id.split("/")[0]
+            var icon=document.getElementById("ic"+fixid)
             if(icon!=null){
                 icon.style.color="red"
             }

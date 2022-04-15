@@ -76,7 +76,6 @@
 
 
                 
-                
                 $.ajax({
                     url: "https://api.themoviedb.org/3/search/"+type+"?api_key=19f84e11932abbc79e6d83f82d6d1045&query="+nome,
                     data: {
@@ -148,31 +147,63 @@
             });
          
          ajax.fail(function(){
-            
-            console.log("fail... tentando com o api da tmdb")
+            console.clear()
+            console.log(" tentando com o api da tmdb...")
             let location=window.location.href.split("/")
-            let tmdbid=location[location.length -1]
-            const api_movie_url = "https://api.themoviedb.org/3/movie/"+tmdbid+"?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US";
+
+            let tmdbid
+            let type
+            if(location[location.length -1]=="tv"){
+                tmdbid=location[location.length -2]
+                type=location[location.length -1]
+            }
+            else if(location[location.length -1]=="movie"){
+                tmdbid=location[location.length -2]
+                type=location[location.length -1]
+            }
+            else {
+                tmdbid=location[location.length -1]
+                type="movie"}
+
+
+
+          
+            const api_movie_url = "https://api.themoviedb.org/3/"+type+"/"+tmdbid+"?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US";
             
 
 
 
             $.ajax({url: api_movie_url, success: function(data){
+                if(type=="tv"){
+                     self.name(data.name);
+                     self.dateAdded(data.first_air_date);
+                     self.duration(data.episode_run_time+" mim");
+                     tmdbImage(data.name,"tv", false);                        
+                
+                    console.clear()
+                }
+
+                if(type=="movie"){
+
                 self.name(data.title);
                 self.dateAdded(data.release_date);
                 tmdbImage(data.original_title,"movie", false);
-                document.getElementById("displayvideos").style.visibility="visible";
+             
                 
                 self.duration(data.runtime+" mim");
-                //console.clear()
+             
                 self.categoria(data.genres)
-                console.log(data.genres)
-                var videoapi="https://api.themoviedb.org/3/movie/"+tmdbid+"/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US"
+                }
+               
+                var videoapi="https://api.themoviedb.org/3/"+type+"/"+tmdbid+"/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US"
 
 
 
                     //seacrh video on api
                     $.ajax({url: videoapi, success: function(result){
+                        if(result.results.length>0){
+                            document.getElementById("displayvideos").style.visibility="visible";
+                        }
                         self.videos(result.results)
                         self.keys(result.results.key)
                       }});

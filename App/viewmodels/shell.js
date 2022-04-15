@@ -5,7 +5,6 @@
         search: function() {
             //It's really easy to show a message box.
             //You can add custom options too. Also, it returns a promise for the user's response.
-            app.showMessage('Search not yet implemented...');
         },
         activate: function () {
 
@@ -23,6 +22,8 @@
 
                 { route: 'TitleDetails', title: 'Title', moduleId: 'viewmodels/TitleDetails', nav: false },
                 { route: 'TitleDetails(/:id)', title: 'Title Details', moduleId: 'viewmodels/TitleDetails', hash: '#TitleDetails', nav: false },
+                { route: 'TitleDetails(/:id/:media_type)', title: 'Title Details', moduleId: 'viewmodels/TitleDetails', hash: '#TitleDetails', nav: false },
+
 
                 { route: 'ActorDetails', title: 'Actor', moduleId: 'viewmodels/ActorDetails', nav: false },
                 { route: 'ActorDetails(/:id)', title: 'Actor Details', moduleId: 'viewmodels/ActorDetails', hash: '#ActorDetails', nav: false },

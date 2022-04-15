@@ -32,16 +32,21 @@
             <tbody data-bind="foreach: records">
                 <tr class="t-row">
                     <td class="imgTd">
-                        <a data-bind="attr: { href:'#TitleDetails/'+Id }">
-                            <img class="imagePoster" data-bind="attr: { src: $parent.getPoster(Name, TypeName), 'id': getTMDbSlug(Name) }" />
+                        <a data-bind="attr: { href:'#TitleDetails/'+id }">
+                            <img class="imagePoster" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
                         </a>
                     </td>
                     <td scope="row" class="">
-                        <h4 data-bind="text: Name"></h4>
-                        <span data-bind="text: ReleaseYear"></span>
+
+                      
+                    
+                        <h4 data-bind="text: name"></h4>
+                    
                     </td>
-                    <td class="d-none d-md-block" data-bind="text:Description" id="desc"></td>
-                    <td data-bind="text:TypeName"></td>
+
+                    
+                    <td class="d-none d-md-block" data-bind="text:overview" id="desc"></td>
+                    <td data-bind="text:media_type"></td>
                     <td class="text-right text-white">
                         <!--<a class="btn  btn-sm" data-bind="attr: { href:'#TitleDetails/'+Id }">
                         <i class="fa fa-eye" title="Selecione para ver detalhes"></i>
@@ -49,13 +54,14 @@
                     <button class="btn btn-sm">
                         <i class="fa fa-heart-o" data-bind="attr : { 'id': 'favourite_'+Id }" title="Selecione para adicionar aos favoritos"></i>
                     </button>-->
-                        <a data-bind="attr: { href:'#TitleDetails/'+Id }" class="btn btn-link">
-                            <i class="fa fa-info" aria-hidden="true"></i>
+                        <a data-bind="attr: { href:'#TitleDetails/'+id }" class="btn btn-link">
+                            <i data-bind="attr: { id:'ip'+id }" class="fa fa-info" aria-hidden="true"></i>
                         </a>
 
                         
-                        <a data-bind="attr: { id:Id , name:Name}" class="btn btn-link" onclick="myFunction(id,name)">
-                            <i data-bind="attr: { id:'ic'+Id }"   class="fa fa-heart" aria-hidden="true"></i>
+                        
+                        <a data-bind="attr: { id:id , name:name ,type:media_type}" class="btn btn-link" onclick="myFunction(id,name,type)">
+                            <i data-bind="attr: { id:'ic'+id }"   class="fa fa-heart" aria-hidden="true"></i>
 
 
                         </a>

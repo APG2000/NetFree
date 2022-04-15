@@ -148,18 +148,15 @@ function welcomef(id){
     console.log(id)
    
 }
-function myFunction(id,name) {
+function myFunction(id,name,any) {
     
 
- 
-    var dict = []
-   // var favs = [];
    var icon=document.getElementById("ic"+id)
    
    if(localStorage.getItem(name)==null){
        console.log("Adicionando a favorito")
        icon.style.color="red"
-       localStorage.setItem(name , id);
+       localStorage.setItem(name , id+'/'+any);
 
 
      
@@ -171,18 +168,19 @@ function myFunction(id,name) {
    }
     
 
-
   
     }
     function showfav(){
         console.clear()
-        console.log("show all favs")
+     
 
         for (var i = 0; i < localStorage.length; i++){
 
             var id=localStorage.getItem(localStorage.key(i))
-            var icon=document.getElementById("ic"+id)
+            var fixid=id.split("/")[0]
+            var icon=document.getElementById("ic"+fixid)
             
+            //console.log(icon)
             if(icon!=null){
                 icon.style.color="red"
             }
@@ -204,8 +202,9 @@ function favinfo(name){
 
     let elements = document.getElementsByName(name);
     id=localStorage.getItem(name)
-    elements.href="#TitleDetails/"+id
-    console.log(elements.href)
+    var fixid=id.split("/")[0]
+    var type=id.split("/")[1]
+    elements.href="#TitleDetails/"+fixid+"/"+type
 
     window.location = elements.href;
 }

@@ -107,6 +107,8 @@ define(['durandal/app'], function (app) {
             self.activate(1);
     
         };
+
+        console.clear()
     
     return vm
 });
