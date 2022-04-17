@@ -42,7 +42,7 @@
             ajax=ajaxHelper(composedUri, 'GET')
             ajax.done(function (data) {
                 //console.log(data);
-
+                
                 self.actors(data.Actors);
                 self.categories(data.Categories);
                 self.countries(data.Countries);
@@ -166,7 +166,7 @@
                 type="movie"}
 
 
-
+                self.id (tmdbid)
           
             const api_movie_url = "https://api.themoviedb.org/3/"+type+"/"+tmdbid+"?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US";
             
@@ -175,6 +175,7 @@
 
             $.ajax({url: api_movie_url, success: function(data){
                 if(type=="tv"){
+                    document.getElementById("verfilmebtn").style.display="none" //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
                      self.name(data.name);
                      self.dateAdded(data.first_air_date);
                      self.duration(data.episode_run_time+" mim");

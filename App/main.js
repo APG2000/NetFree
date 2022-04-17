@@ -225,8 +225,13 @@ function cardhide(id){
 
 }
 
+function verfilme(){
+    alert("Ainda so é possivel ver filmes ... , em breve estara  a opcao de ver series tambem ... ")
+    console.log("ok")
+    var elem=document.getElementById("showfilme")
+    elem.style.display="block"
 
-
+}
 function cardshow(id){
     var nothide=id
     for(var  i in this.records()){

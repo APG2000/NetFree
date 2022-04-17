@@ -14,6 +14,10 @@
 
         <img class="detailsPoster" data-bind="attr: { 'id': getTMDbSlug(name()) }"  />
 
+        <div align="center" >
+            <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Ver Filme</button>
+        </div>
+
         <!--<button  data-bind="attr: { 'id': getTMDbSlug(name()) + '-videoBtn', 'data-toggle': '#' + getTMDbSlug(name()) + '-modal' }" data-toggle="modal">View video</button>-->
         <!-- Modal -->
         <!--<div class="modal fade" data-bind="attr: { 'id': getTMDbSlug(name()) + '-modal' }" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -150,12 +154,19 @@
         <!-- /ko -->
     </div>
 
-    <di>
-        <h1 id="displayvideos" style="text-align: center; visibility: hidden;">
-            Videos
-        </h1>
-        <br>
-    </di>
+  
+
+    <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9" id="showfilme" style="display: none;" >
+    <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://fsapi.xyz/tmdb-movie/'+id() }"    allowfullscreen allow='autoplay'           ></iframe>
+  </div>
+  <di>
+    <h1 id="displayvideos" style="text-align: center; visibility: hidden;">
+        Videos
+    </h1>
+    <br>
+</di>
+
     <div class="cards" data-bind="foreach: videos">
 
         <div class="card ">
