@@ -72,7 +72,8 @@
 
             $.ajax({url: api_movie_url, success: function(data){
                 if(type=="tv"){
-                    document.getElementById("verfilmebtn").style.display="none" //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
+                    
+                    //document.getElementById("verfilmebtn").style.display="none" //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
                      self.name(data.name);
                      self.dateAdded(data.first_air_date);
                      self.duration(data.episode_run_time+" mim");
