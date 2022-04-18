@@ -246,3 +246,41 @@ Number.prototype.pad = function (size) {
     while (s.length < (size || 2)) { s = "0" + s; }
     return s;
 }
+
+function incrementValue()
+{
+    let totalpade;
+    var value = parseInt(document.getElementById('number').value, 10);
+    value = isNaN(value) ? 0 : value;
+    
+    value++;
+    document.getElementById('number').value = value;
+    ajaxHelper('https://api.themoviedb.org/3/movie/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page='+value, 'GET').done(function (data) {
+                totalpade=data.total_pages
+
+                console.log(data)
+
+                hideLoading();
+                self.records(data.results);
+                
+
+            });
+
+
+}
+
+function makepopular(){
+
+    ajaxHelper('https://api.themoviedb.org/3/movie/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1', 'GET').done(function (data) {
+        totalpade=data.total_pages
+
+        console.log(data)
+
+        hideLoading();
+        self.records(data.results);
+        
+
+    });
+            
+          
+}
