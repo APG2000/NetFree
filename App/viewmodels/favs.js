@@ -31,19 +31,7 @@ define(['durandal/app'], function (app) {
          self.favs(dict)
         
       
-
-
-         
-       
-     
-    
     };
-
-    
-    
-  
-
-   
 
     return vm
 

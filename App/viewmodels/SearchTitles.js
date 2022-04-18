@@ -15,7 +15,7 @@ define(['durandal/app'], function (app) {
         self.query = ko.observable();
 
         self.first = ko.observable(true);
-
+        
         console.clear()
         getTitles = function () {
             var composedUrl = self.baseUri() + self.query()+"&page=1&include_adult=true";
@@ -25,6 +25,7 @@ define(['durandal/app'], function (app) {
   
                    
                     for (var i in data.results) {
+                        
                         if (!data.results[i].name) {
                             delete Object.assign(data.results[i], {'name': data.results[i].title})['title'];
                           }
@@ -40,7 +41,7 @@ define(['durandal/app'], function (app) {
                     
 
                       self.records(data.results)
-                      console.clear()
+                     // console.clear()
 
 
                       for (var i in data.results) {

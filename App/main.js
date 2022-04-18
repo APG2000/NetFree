@@ -1,4 +1,5 @@
 const PAGE_SIZE = 20;
+
 requirejs.config({
     paths: {
         'text': '../vendors/Scripts/text',
@@ -16,6 +17,7 @@ define('jquery', function () { return jQuery; });
 define('knockout', ko);
 
 define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'], function (system, app, viewLocator) {
+    
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
@@ -38,7 +40,42 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'],
     });
 });
 
+// ==UserScript==
+// @name          prevent pop-ad
+// @include       https://fsapi.xyz/tmdb-movie/*
+// @run-at        document-start
+// @grant         none
+// ==/UserScript==
 
+    document.addEventListener('DOMContentLoaded', function() {
+        jQuery._data(document, 'events').mouseup = null;
+        window.oncontextmenu = null;
+
+        var lastCleanup = Date.now();
+        var timeoutCleanup;
+        new MutationObserver(function cleanUp(mutations) {
+            if (Date.now() - lastCleanup < 100)
+                return setTimeout(cleanUp, 111);
+            lastCleanup = Date.now();
+            if (timeoutCleanup)
+                clearTimeout(timeoutCleanup);
+            [].forEach.call(document.querySelectorAll('div[style*="z-index"]'), function(e) {
+                if (e.style.zIndex > 10000000)
+                    e.style.cssText = 'width:0; height:0';
+            });
+        }).observe(document, {subtree:true, childList:true});
+    });
+
+    var __addEventListener = window.addEventListener;
+    window.addEventListener = document.addEventListener = function(type, fn, capture) {
+        console.log(this, type, fn); // debug logging
+        if (/^(ceop|click|mousedown|mouseup|mousemove|contextmenu)$/.test(type)) {
+            console.log('Prevented', type, 'registration on', this, fn);
+        } else {
+            __addEventListener.call(this, type, fn, capture);
+        }
+    };
+  
 
 
 
@@ -147,13 +184,14 @@ function cleanfav(){
 
 function myFunction(id,name,any) {
     
-
+    console.log(id +" "+name+" "+any )
    var icon=document.getElementById("ic"+id)
    
    if(localStorage.getItem(name)==null){
        console.log("Adicionando a favorito")
        icon.style.color="purple"
        localStorage.setItem(name , id+'/'+any);
+
 
 
      
@@ -168,7 +206,6 @@ function myFunction(id,name,any) {
   
     }
     function showfav(){
-        console.clear()
      
 
         for (var i = 0; i < localStorage.length; i++){
@@ -197,13 +234,18 @@ function remove(name){
 function favinfo(name){
   
 
+    console.log(name)
+  
     let elements = document.getElementsByName(name);
     id=localStorage.getItem(name)
+
+    console.log(id)
     var fixid=id.split("/")[0]
     var type=id.split("/")[1]
     elements.href="#TitleDetails/"+fixid+"/"+type
 
-    window.location = elements.href;
+  
+   window.location = elements.href;
 }
 
 
@@ -241,8 +283,52 @@ function cardshow(id){
     }
 }
 
+// ==UserScript==
+// @name          prevent pop-ad
+// @include       https://fsapi.xyz/tmdb-movie/*
+// @run-at        document-start
+// @grant         none
+// ==/UserScript==
+
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        jQuery._data(document, 'events').mouseup = null;
+        window.oncontextmenu = null;
+
+        var lastCleanup = Date.now();
+        var timeoutCleanup;
+        new MutationObserver(function cleanUp(mutations) {
+            if (Date.now() - lastCleanup < 100)
+                return setTimeout(cleanUp, 111);
+            lastCleanup = Date.now();
+            if (timeoutCleanup)
+                clearTimeout(timeoutCleanup);
+            [].forEach.call(document.querySelectorAll('div[style*="z-index"]'), function(e) {
+                if (e.style.zIndex > 10000000)
+                    e.style.cssText = 'width:0; height:0';
+            });
+        }).observe(document, {subtree:true, childList:true});
+    });
+
+    var __addEventListener = window.addEventListener;
+    window.addEventListener = document.addEventListener = function(type, fn, capture) {
+        console.log(this, type, fn); // debug logging
+        if (/^(ceop|click|mousedown|mouseup|mousemove|contextmenu)$/.test(type)) {
+            console.log('Prevented', type, 'registration on', this, fn);
+        } else {
+            __addEventListener.call(this, type, fn, capture);
+        }
+    };
+})();
+
 Number.prototype.pad = function (size) {
     var s = String(this);
     while (s.length < (size || 2)) { s = "0" + s; }
     return s;
+
+
+
+
 }
+
+  
