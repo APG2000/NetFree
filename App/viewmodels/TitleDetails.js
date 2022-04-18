@@ -1,6 +1,4 @@
-﻿
-define(['durandal/app'], function (app) {
-    
+﻿define(['durandal/app'], function (app) {
     var vm = function () {
         console.log('ViewModel initiated...');
 
@@ -39,7 +37,6 @@ define(['durandal/app'], function (app) {
 
 
         self.activate = function (id) {
-            
             console.log('CALL: getTitle...');
             var composedUri = self.baseUri() + id;
             
@@ -47,13 +44,12 @@ define(['durandal/app'], function (app) {
             
          
          
+            console.clear()
             console.log(" tentando com o api da tmdb...")
             let location=window.location.href.split("/")
-            console.log(location)
+
             let tmdbid
             let type
-
-           
             if(location[location.length -1]=="tv"){
                 tmdbid=location[location.length -2]
                 type=location[location.length -1]
@@ -67,7 +63,7 @@ define(['durandal/app'], function (app) {
                 type="movie"}
 
 
-            self.id (tmdbid)
+                self.id (tmdbid)
           
             const api_movie_url = "https://api.themoviedb.org/3/"+type+"/"+tmdbid+"?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US";
             
@@ -76,16 +72,14 @@ define(['durandal/app'], function (app) {
 
             $.ajax({url: api_movie_url, success: function(data){
                 if(type=="tv"){
-                   
-                  
                     
+                    //document.getElementById("verfilmebtn").style.display="none" //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
                      self.name(data.name);
                      self.dateAdded(data.first_air_date);
                      self.duration(data.episode_run_time+" mim");
-                     tmdbImage(data.name,"tv", false);        
-                       //document.getElementById("verfilmebtn").style.display="none" //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio                
+                     tmdbImage(data.name,"tv", false);                        
                 
-                  //  console.clear()
+                    console.clear()
                 }
 
                 if(type=="movie"){
@@ -115,10 +109,8 @@ define(['durandal/app'], function (app) {
 
 
               }});
-              //block adds
 
-             
-        
+
    
             hideLoading();
             
@@ -141,7 +133,6 @@ define(['durandal/app'], function (app) {
             image.classList.toggle('img-modal');
 
         }
-        
     };
 
     return vm
