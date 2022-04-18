@@ -3,11 +3,11 @@
 <section>
     <div class="container details">
         <div class="pt-4 pb-1 mb-3">
-            <h2 data-bind="text:displayName" style="text-align: center;" ></h2>
-            <h1 data-bind="text: name()"></h1>
+            
+            <h1 data-bind="text: name()"  style="text-align: center;"></h1>
             <div data-bind="with: type">
                 <h4 class="d-inline-block">
-                    <span data-bind="text: Name"></span> <span data-bind="text: $parent.releaseYear"></span>
+                    <span data-bind="text: Name" ></span> <span data-bind="text: $parent.releaseYear"></span>
                 </h4>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <img class="detailsPoster" data-bind="attr: { 'id': getTMDbSlug(name()) }"  />
 
         <div align="center" >
-            <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Ver Filme</button>
+            <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Assistir </button>
         </div>
 
         <!--<button  data-bind="attr: { 'id': getTMDbSlug(name()) + '-videoBtn', 'data-toggle': '#' + getTMDbSlug(name()) + '-modal' }" data-toggle="modal">View video</button>-->
