@@ -62,7 +62,7 @@
                     <div class="carousel-item" data-bind="css: { 'active': $index() == 0 }">
                         <img class="d-block w-100" data-bind="attr: { src: api_img_url + backdrop_path, alt: original_title }" />
                         <div class="carousel-caption d-none d-md-block">
-                            <img style="height: 400px" data-bind="attr: { src: api_img_url + poster_path, alt: original_title }" />
+                            <img style="height: 400px" onclick="location.href='#TitleDetails/'+id;"  data-bind="attr: { id:id , src: api_img_url + poster_path, alt: original_title }" />
                             <hr class="border-bottom-muted" />
                             <h5 data-bind="text: original_title"></h5>
                             <p>
