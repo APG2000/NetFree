@@ -39,6 +39,8 @@
 
 
         self.activate = function (id) {
+
+            showLoading();
             console.log('CALL: getTitle...');
             var composedUri = self.baseUri() + id;
             
@@ -95,7 +97,7 @@
                 self.tipo="movie"
                 self.name(data.title);
                 self.dateAdded(data.release_date);
-                tmdbImage(data.original_title,"movie", false);
+                tmdbImage(data.title,"movie", false);
              
                 
                 self.duration(data.runtime+" mim");
@@ -120,7 +122,7 @@
               }});
 
             
-            hideLoading();
+         
             
 
     
@@ -139,7 +141,7 @@
             var image = document.getElementById(id);
 
             image.classList.toggle('img-modal');
-
+            hideLoading();
         }
     };
 

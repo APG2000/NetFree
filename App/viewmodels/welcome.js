@@ -8,13 +8,13 @@
         
 
         self.activate = function () {
-            showLoading();
+           showLoading();
 
             var composedUri = self.baseUri();
             ajaxHelper(composedUri, 'GET').done(function (data) {
                
 
-                hideLoading();
+              
                 self.records(data.results);
 
             });

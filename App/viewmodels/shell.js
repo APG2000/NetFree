@@ -14,11 +14,13 @@
                 { route: 'Titles', title: 'Filmes', moduleId: 'viewmodels/Titles', nav: true },
                 { route: 'Titles(/:id)', title: 'Filmes', moduleId: 'viewmodels/Titles', hash: '#Titles', nav: false },
 
-                { route: 'favs', title: 'Meus favoritos', moduleId: 'viewmodels/favs', nav: true },
-                { route: 'favs(/:id)', title: 'Meus favoritos', moduleId: 'viewmodels/favs', hash: '#fav', nav: false },
+               
                 
                 { route: 'Series', title: 'Series', moduleId: 'viewmodels/Series', nav: true },
                 { route: 'Series(/:id)', title: 'Series', moduleId: 'viewmodels/Series', hash: '#Series', nav: false },
+
+                { route: 'favs', title: 'Meus favoritos', moduleId: 'viewmodels/favs', nav: true },
+                { route: 'favs(/:id)', title: 'Meus favoritos', moduleId: 'viewmodels/favs', hash: '#fav', nav: false },
 
                 { route: 'TitleDetails', title: 'Title', moduleId: 'viewmodels/TitleDetails', nav: false },
                 { route: 'TitleDetails(/:id)', title: 'Title Details', moduleId: 'viewmodels/TitleDetails', hash: '#TitleDetails', nav: false },

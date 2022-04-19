@@ -116,14 +116,15 @@ function getIMDbImage(data, index) {
 
 function showLoading() {
     console.log('show   ');
-    $('#loadingModal').modal({
-        backdrop: 'static',
-        keyboard: false
-    });
+    $('#loadingModals').modal('show');
+    //$('#loadingModal').modal({
+      //  backdrop: 'static',
+       // keyboard: false
+    //});
 }
 function hideLoading() {
-    $('#loadingModal').on('shown.bs.modal', function (e) {
-        $("#loadingModal").modal('hide');
+    $('#loadingModals').on('shown.bs.modal', function (e) {
+        $("#loadingModals").modal('hide');
     });
     
 }
