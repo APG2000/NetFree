@@ -11,14 +11,14 @@
             router.map([
                 { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                
-                { route: 'Titles', title: 'Titles', moduleId: 'viewmodels/Titles', nav: true },
-                { route: 'Titles(/:id)', title: 'Titles', moduleId: 'viewmodels/Titles', hash: '#Titles', nav: false },
+                { route: 'Titles', title: 'Filmes', moduleId: 'viewmodels/Titles', nav: true },
+                { route: 'Titles(/:id)', title: 'Filmes', moduleId: 'viewmodels/Titles', hash: '#Titles', nav: false },
 
-                { route: 'favs', title: 'favs', moduleId: 'viewmodels/favs', nav: true },
-                { route: 'favs(/:id)', title: 'favs', moduleId: 'viewmodels/favs', hash: '#favs', nav: false },
+                { route: 'favs', title: 'Meus favoritos', moduleId: 'viewmodels/favs', nav: true },
+                { route: 'favs(/:id)', title: 'Meus favoritos', moduleId: 'viewmodels/favs', hash: '#fav', nav: false },
                 
-                { route: 'Actors', title: 'Actors', moduleId: 'viewmodels/Actors', nav: true },
-                { route: 'Actors(/:id)', title: 'Actors', moduleId: 'viewmodels/Actors', hash: '#Actors', nav: false },
+                { route: 'Series', title: 'Series', moduleId: 'viewmodels/Series', nav: true },
+                { route: 'Series(/:id)', title: 'Series', moduleId: 'viewmodels/Series', hash: '#Series', nav: false },
 
                 { route: 'TitleDetails', title: 'Title', moduleId: 'viewmodels/TitleDetails', nav: false },
                 { route: 'TitleDetails(/:id)', title: 'Title Details', moduleId: 'viewmodels/TitleDetails', hash: '#TitleDetails', nav: false },

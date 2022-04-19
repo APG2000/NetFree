@@ -20,7 +20,7 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'],
     system.debug(true);
     //>>excludeEnd("build");
 
-    app.title = 'Browse Netlix UA';
+    app.title = 'NETFREE';
 
     app.configurePlugins({
         router: true,
@@ -246,19 +246,24 @@ Number.prototype.pad = function (size) {
     return s;
 }
 
-function incrementValue()
+function incrementValue(any)
 {
     let totalpade;
     var value = parseInt(document.getElementById('number').value, 10);
     value = isNaN(value) ? 0 : value;
     
+    
     value++;
     document.getElementById('number').value = value;
-    ajaxHelper('https://api.themoviedb.org/3/movie/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page='+value, 'GET').done(function (data) {
+    let link
+    if(any=="tv"){
+    link='https://api.themoviedb.org/3/tv/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page='+value
+    }
+    if(any!="tv"){
+        link='https://api.themoviedb.org/3/movie/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page='+value
+    }
+    ajaxHelper(link, 'GET').done(function (data) {
                 totalpade=data.total_pages
-
-                console.log(data)
-
                 hideLoading();
                 self.records(data.results);
                 
@@ -268,13 +273,13 @@ function incrementValue()
 
 }
 
-function makepopular(){
+function makepopular(any){
+   
+        ajaxHelper('https://api.themoviedb.org/3/'+any+'/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1', 'GET').done(function (data) {
+        
 
-    ajaxHelper('https://api.themoviedb.org/3/movie/popular?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1', 'GET').done(function (data) {
-        totalpade=data.total_pages
-
-        console.log(data)
-
+        
+            
         hideLoading();
         self.records(data.results);
         

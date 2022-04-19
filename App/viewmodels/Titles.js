@@ -1,6 +1,6 @@
 ﻿define(['durandal/app'], function (app) {
     var page = function () {
-        this.displayName = 'Bem vindos ao nosso projeto!';
+        this.displayName = 'Bem vindos ao meu projeto!';
 //api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1'
 
         self.records = ko.observableArray([]);
@@ -10,7 +10,7 @@
             showLoading();
 
           
-            makepopular()
+            makepopular("movie")
             
             
             hideLoading();
