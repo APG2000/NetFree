@@ -2,164 +2,126 @@
 
 <section>
     <div class="container details">
-        <div class="pt-4 pb-1 mb-3">
-            
-            <h1 data-bind="text: name()"  style="text-align: center;"></h1>
-            <div data-bind="with: type">
-                <h4 class="d-inline-block">
-                    <span data-bind="text: Name" ></span> <span data-bind="text: $parent.releaseYear"></span>
-                </h4>
-            </div>
-        </div>
-
-        <img class="detailsPoster" data-bind="attr: { 'id': getTMDbSlug(name()) }"  />
-
-        <div align="center" >
-            <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Assistir </button>
-        </div>
-
-        <!--<button  data-bind="attr: { 'id': getTMDbSlug(name()) + '-videoBtn', 'data-toggle': '#' + getTMDbSlug(name()) + '-modal' }" data-toggle="modal">View video</button>-->
-        <!-- Modal -->
-        <!--<div class="modal fade" data-bind="attr: { 'id': getTMDbSlug(name()) + '-modal' }" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-
-            <div class="modal-body">
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>-->
-        <!-- 16:9 aspect ratio -->
-        <!--<div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" data-bind="attr: { 'id': getTMDbSlug(name()) + '-video' }" allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-    <div id="modal" align="center" style=display:none ="center" class="bs-example">
-        <!-- Button HTML (to Trigger Modal) -->
-        <a href="#myModal"  class="btn btn-primary btn-lg" data-toggle="modal">Play Video</a>
-        
-        <!-- Modal HTML -->
-        <div id="myModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">YouTube Video</h5>
-                        <button id="play" class="center" type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="embed-responsive embed-responsive-16by9">
-                        <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315" src="" allowfullscreen></iframe>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>     
-
-        <hr class="border-bottom-muted" />
-
-        <!-- ko if:name().length > 0 -->
-        <!-- ko if:description().length > 0 -->
-        <h6>Description</h6>
-        <p data-bind="text: description()"></p>
-
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:actors().length > 0 -->
-        <h6>Actors</h6>
-        <div data-bind="foreach: actors">
-            <div>
-                <a data-bind="attr: { href: '#ActorDetails/'+Id }">
-                    <i class="icon mr-1 fa fa-user-o"></i>
-                    <span data-bind="text: Name"></span>
-                </a>
-            </div>
-        </div>
-
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:directors().length > 0 -->
-        <h6>Directors</h6>
-        <div data-bind="foreach: directors">
-            <div>
-                <a data-bind="attr: { href: '#DirectorDetails/'+Id }">
-                    <i class="icon mr-1 fa fa-user-o"></i>
-                    <span data-bind="text: Name"></span>
-                </a>
-            </div>
-        </div>
-
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:categories().length > 0 -->
-        <h6>Categories</h6>
-        <div data-bind="foreach: categories">
-            <div>
-                <i class="icon mr-1 fa fa-bookmark-o"></i>
-                <span data-bind="text: Name "></span>
+            <div class="pt-4 pb-1 mb-3">
                 
+                <h1 data-bind="text: name()"  style="text-align: center;"></h1>
+                <div data-bind="with: type">
+                    <h4 class="d-inline-block">
+                        <span data-bind="text: Name" ></span> <span data-bind="text: $parent.releaseYear"></span>
+                    </h4>
+                </div>
             </div>
-        </div>
-         <!-- /ko -->
-        <!-- ko if:categoria().length > 0 -->
-         <h6>Categories</h6>
-         <div data-bind="foreach: categoria">
-             <div>
-                 <i class="icon mr-1 fa fa-bookmark-o"></i>
-                 <span data-bind="text: name "></span>
-                 
-             </div>
-         </div>
-     
-        <hr class="border-bottom-muted" />
+
+            <img class="detailsPoster" data-bind="attr: { 'id': getTMDbSlug(name()) }"  />
+
+            <div align="center" >
+                <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Assistir </button>
+            </div>
+
         
-        <!-- /ko -->
-        <!-- ko if:countries().length > 0 -->
-        <h6>Countries</h6>
-        <div data-bind="foreach: countries">
-            <div>
-                <i class="icon mr-1 fa fa-flag-o"></i>
-                <span data-bind="text: Name + '', attr: { href: '#ActorDetails/'+Id }"></span>
+        <div id="modal" align="center" style=display:none ="center" class="bs-example">
+            <!-- Button HTML (to Trigger Modal) -->
+            <a href="#myModal"  class="btn btn-primary btn-lg" data-toggle="modal">Play Video</a>
+            
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">YouTube Video</h5>
+                            <button id="play" class="center" type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315" src="" allowfullscreen></iframe>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+            </div>     
 
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:dateAdded() != null -->
+            <!-- ko if:overview() -->
+            <hr class="border-bottom-muted" />
+            <h6>Overview</h6>
+            <span data-bind="text: overview"></span>
 
-        <h6>Added on</h6>
-        <span data-bind="text: getDateAdded()"></span>
+        
+            <hr class="border-bottom-muted" />
+            <!-- ko if:categories().length > 0 -->
+            <h6>Categories</h6>
+            <div data-bind="foreach: categories">
+                <div>
+                    <i class="icon mr-1 fa fa-bookmark-o"></i>
+                    <span data-bind="text: Name "></span>
+                    
+                </div>
+            </div>
 
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:duration() != null -->
+            <!-- /ko -->
+            <!-- ko if:categoria().length > 0 -->
+            <h6>Categories</h6>
+            <div data-bind="foreach: categoria">
+                <div>
+                    <i class="icon mr-1 fa fa-bookmark-o"></i>
+                    <span data-bind="text: name "></span>
+                    
+                </div>
+            </div>
+        
+            <hr class="border-bottom-muted" />
+            <!-- /ko -->
+            <!-- ko if:dateAdded() != null -->
 
-        <h6>Duration</h6>
-        <span data-bind="text: duration()"></span>
+            <h6>Added on</h6>
+            <span data-bind="text: getDateAdded()"></span>
 
-        <hr class="border-bottom-muted" />
-        <!-- /ko -->
-        <!-- ko if:rating().Code != null -->
+            <hr class="border-bottom-muted" />
+            <!-- /ko -->
+            <!-- ko if:duration() != null -->
 
-        <h6>Rating</h6>
-        <span data-bind="text: rating().Code"></span>
-        <!-- /ko -->
-        <!-- /ko -->
+            <h6>Duration</h6>
+            <span data-bind="text: duration()"></span>
+
+            <hr class="border-bottom-muted" />
+            <!-- /ko -->
+            <!-- ko if:rating() != null -->
+
+            <h6>Rating</h6>
+            <i class="fa fa-star"  aria-hidden="true"></i>
+            <span data-bind="text: rating"></span>
+            <!-- /ko -->
+            <!-- /ko -->
+            
+
     </div>
+
+    <hr class="border-bottom-muted" />
+    <div>
+         <!-- ko if:tipo != "movie" -->
+        
+
+        <form class="form-inline my-2 my-lg-0  Assistir">
+            <div class="form-group btn-group-sm bg-dark">
+                <input id="seasons" class="form-control mr-sm-1" type="search" placeholder="episodes" aria-label="Search" >
+                <input id="episodes" class="form-control mr-sm-1" type="search" placeholder="seasons" aria-label="Search" >
+                <button data-bind="click: showserie(id())" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Assistir </button>
+            </div>
+        </form>
+      
+
+
+         <!-- /ko -->
+    </div>
+  
+    <hr class="border-bottom-muted" />
     <!--
         https://fsapi.xyz/tmdb-movie/ best 
     https://www.2embed.ru/embed/tmdb/movie?id=634649 no ads?
     -->
     <!-- 16:9 aspect ratio -->
 <div class="embed-responsive embed-responsive-16by9" id="showfilme" style="display: none;" >
-    <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://www.2embed.ru/embed/tmdb/movie?id='+id() }"    allowfullscreen allow='autoplay'           ></iframe>
+   <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://www.2embed.ru/embed/tmdb/movie?id='+id() }"    allowfullscreen allow='autoplay'           ></iframe>
   </div>
   <di>
     <hr class="border-bottom-muted" />

@@ -226,8 +226,7 @@ function cardhide(id){
 }
 
 function verfilme(){
-    alert("Ainda so é possivel ver filmes ... , em breve estara  a opcao de ver series tambem ... ")
-    console.log("ok")
+  
     var elem=document.getElementById("showfilme")
     elem.style.display="block"
 
@@ -285,3 +284,24 @@ function makepopular(){
           
 }
 
+function showserie(id){
+    var episodes=document.getElementById("episodes").value
+    var seasons=document.getElementById("seasons").value
+    var linkserie=document.getElementById("verfilme")
+    document.getElementById("verfilmebtn").style.display="none"
+    if(episodes && seasons){
+        console.log(episodes+ " " + seasons + " "+ id)
+        var link= "https://www.2embed.ru/embed/tmdb/tv?id="+id+"&s="+seasons+"&e="+episodes
+        linkserie.src=link
+        
+        var elem=document.getElementById("showfilme")
+        elem.style.display="block"
+
+     
+    }
+  
+   
+}
+
+
+    

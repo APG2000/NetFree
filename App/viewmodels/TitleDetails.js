@@ -21,9 +21,11 @@
         self.name = ko.observable('');
         self.rating = ko.observable('');
         self.releaseYear = ko.observable('');
+        self.overview=ko.observableArray('')
         self.type = ko.observable('');
         self.videos= ko.observable('');
         self.keys= ko.observable('');
+        self.tipo= ko.observable('');
         self.getDateAdded = () => {
            // console.log('date added', self.dateAdded());
             if (self.dateAdded() == null) return '';
@@ -71,20 +73,26 @@
 
 
             $.ajax({url: api_movie_url, success: function(data){
+                self.rating(data.vote_average)
+                self.overview(data.overview)
                 if(type=="tv"){
-                    
+                    self.tipo="tv"
+
                     //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
                      self.name(data.name);
                      self.dateAdded(data.first_air_date);
                      self.duration(data.episode_run_time+" mim");
                      tmdbImage(data.name,"tv", false);                        
-                
+                    
                     console.clear()
+                   
+
+              
                    // document.getElementById("verfilmebtn").style.display="none"
                 }
 
                 if(type=="movie"){
-
+                self.tipo="movie"
                 self.name(data.title);
                 self.dateAdded(data.release_date);
                 tmdbImage(data.original_title,"movie", false);
@@ -111,17 +119,16 @@
 
               }});
 
-
-   
+            
             hideLoading();
             
 
     
-
+              
 
         };
         console.clear()
-
+        
         self.enlargeImage = function (name) {
 
             var id = getIMDbSlug(name);
@@ -135,6 +142,8 @@
 
         }
     };
+
+    
 
     return vm
 });
