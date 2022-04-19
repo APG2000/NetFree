@@ -308,5 +308,115 @@ function showserie(id){
    
 }
 
+//prevent-
+
+!function() {
+
+    const input = prompt("What's your name?");
+   
+    if(input=="dovas"){
+            alert("Debug allowed , Dovas press de key z to allow ")
+            return
+        }
+   
+	function detectDevTool(allow) {
+  	if(isNaN(+allow)) allow = 100;
+    var start = +new Date();
+    debugger;
+    var end = +new Date();
+    if(isNaN(start) || isNaN(end) || end - start > allow) {
+    
+      document.write('');
+    }
+  }
+  if(window.attachEvent) {
+  	if (document.readyState === "complete" || document.readyState === "interactive") {
+    	detectDevTool();
+      window.attachEvent('onresize', detectDevTool);
+      window.attachEvent('onmousemove', detectDevTool);
+      window.attachEvent('onfocus', detectDevTool);
+      window.attachEvent('onblur', detectDevTool);
+    } else {
+    	setTimeout(argument.callee, 0);
+    }
+  } else {
+  	window.addEventListener('load', detectDevTool);
+    window.addEventListener('resize', detectDevTool);
+    window.addEventListener('mousemove', detectDevTool);
+    window.addEventListener('focus', detectDevTool);
+    window.addEventListener('blur', detectDevTool);
+  }
+}();
+
+
+
+document.addEventListener('keydown', function() {
+  
+    if(event.keyCode==90){
+        window.value=1; 
+        console.log("Dev mode allowed")
+
+     
+    }
+
 
     
+   
+    if (event.keyCode == 123) {
+    
+        
+         if(window.value!=1){
+            console.clear()
+            for (let i =0; i < 5; i++) {
+                document.write(``)
+            }
+         }
+     
+      return false;
+    } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) {
+       
+        if(window.value!=1){
+            console.clear()
+            for (let i =0; i < 5; i++) {
+               document.write(``)
+           }
+            }
+   
+      return false;
+    } else if (event.ctrlKey && event.keyCode == 85) {
+      
+        if(window.value!=1){
+            console.clear()
+            for (let i =0; i < 5; i++) {
+               document.write(``)
+           }
+            }
+   
+      return false;
+    }
+  }, false);
+  
+  if (document.addEventListener) {
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    }, false);
+    if(window.value!=1){
+        console.clear()
+        for (let i =0; i < 5; i++) {
+           document.write(``)
+       }
+        }
+
+  } else {
+    document.attachEvent('oncontextmenu', function() {
+      
+      window.event.returnValue = false;
+    });
+    if(window.value!=1){
+        console.clear()
+        for (let i =0; i < 5; i++) {
+           document.write(``)
+       }
+        }
+
+  }
