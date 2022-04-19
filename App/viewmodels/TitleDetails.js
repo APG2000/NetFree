@@ -87,6 +87,8 @@
                      tmdbImage(data.name,"tv", false);                        
                     
                     console.clear()
+
+                    getreviews(data.id,"tv")
                    
 
               
@@ -103,6 +105,9 @@
                 self.duration(data.runtime+" mim");
              
                 self.categoria(data.genres)
+
+                getreviews(data.id,"movie")
+                   
                 }
                
                 var videoapi="https://api.themoviedb.org/3/"+type+"/"+tmdbid+"/videos?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US"
@@ -125,7 +130,7 @@
          
             
 
-    
+              hideLoading();
               
 
         };

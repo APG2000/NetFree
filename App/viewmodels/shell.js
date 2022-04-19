@@ -35,9 +35,9 @@
 
                 { route: 'CategoriesDetails', title: 'Categories', moduleId: 'viewmodels/CategoriesDetails', nav: false },
                 { route: 'CategoriesDetails(/:id)', title: 'Categories', moduleId: 'viewmodels/CategoriesDetails', hash: '#CategoriesDetails', nav: false },
-
-                { route: 'SearchTitles(/:id)', title: 'Search Titles', moduleId: 'viewmodels/SearchTitles', hash: '#SearchTitles', nav: true}
-
+              
+                { route: 'SearchTitles(/:id)', title: 'Search Titles', moduleId: 'viewmodels/SearchTitles', hash: '#SearchTitles', nav: true},
+                { route: 'FaleComigo', title: 'Fale Comigo', moduleId: 'viewmodels/FaleComigo', nav: true}
             ]).buildNavigationModel();
 
             

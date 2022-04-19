@@ -160,3 +160,20 @@ a:focus {
     border: 10cm;
 }
 
+.comment h4,
+.comment span,
+.darker h4,
+.darker span {
+    display: inline
+}
+@media(min-width:568px) {
+    .end {
+        margin-left: auto
+    }
+}
+
+
+.mt-auto{
+    background-color: #222;
+}
+

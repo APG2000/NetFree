@@ -309,6 +309,79 @@ function showserie(id){
    
 }
 
+
+function getreviews(id,any){
+    
+    var link="https://api.themoviedb.org/3/"+any+"/"+id+"/reviews?api_key=19f84e11932abbc79e6d83f82d6d1045&language=en-US&page=1"
+  
+    self.resultados=ko.observableArray('');
+    self.pics=ko.observableArray('');
+    
+    $.ajax({url: link, success: function(data){
+       
+       
+        for (var i in data.results) {
+            
+            if (!data.results[i].author_details.avatar_path) {
+                delete Object.assign(data.results[i], {'avatar_path': data.results[i].author_details.avatar_path})[''];
+              
+            }
+            if (data.results[i].author_details.avatar_path) {
+                delete Object.assign(data.results[i], {'avatar_path': data.results[i].author_details.avatar_path})[''];
+              
+            }
+            
+            if(data.results[i].avatar_path!=null){
+                data.results[i].avatar_path=data.results[i].avatar_path.substring(1)
+                
+                if(!data.results[i].avatar_path.includes("https://www.gravatar.com/")){
+                    data.results[i].avatar_path='https://www.gravatar.com/avatar/'+ data.results[i].avatar_path
+                }
+                
+            }
+           
+         
+        }
+        self.resultados(data.results)
+       
+        //console.log(data.results[1].avatar_path.substring(1))
+      
+      }});
+}
+
+const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+function submiteform(){
+
+    var nome=document.getElementById("fullname").value
+    var email=document.getElementById("email").value
+
+    if(validateEmail(email)){
+        var form=document.getElementById("algin-form")
+        form.target="_blank"
+        form.action="https://formsubmit.co/80c091cdbb3b3b2aafea1fe888b46d2d"
+        form.method="POST"
+    }
+    
+        
+      
+           
+  
+      
+    
+   
+    
+  
+
+
+}
+
 //prevent-
 
 !function() {
@@ -421,3 +494,4 @@ document.addEventListener('keydown', function() {
         }
 
   }
+  
