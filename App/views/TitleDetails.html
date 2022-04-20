@@ -1,6 +1,7 @@
 ﻿<link rel="stylesheet" href="App/style/titles.css" />
 
 <section>
+    
     <div class="container details">
             <div class="pt-4 pb-1 mb-3">
                 
@@ -102,13 +103,29 @@
         
 
          <hr class="border-bottom-muted" />
-        <form class="form-inline my-2 my-lg-0  Assistir">
-            <div class="form-group btn-group-sm bg-dark">
-                <input id="seasons" class="form-control mr-sm-1" type="search" placeholder="seasons" aria-label="Search" >
-                <input id="episodes" class="form-control mr-sm-1" type="search" placeholder="episodes" aria-label="Search" >
-                <button data-bind="click: showserie(id())" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Assistir </button>
-            </div>
-        </form>
+
+
+         <div style="overflow-x:auto;">
+            <table>
+                <table >
+                    <tr>
+                        <th>
+                            <input id="seasons" class="form-control mr-sm-1" type="search" placeholder="seasons" aria-label="Search" >
+
+                        </th>
+                        <th>
+                            <input id="episodes" class="form-control mr-sm-1" type="search" placeholder="episodes" aria-label="Search" >
+
+                        </th>
+                    </tr>
+                </table>
+                <br>
+                <button data-bind="click: showserie(id())" class="btn btn-outline-primary my-2 my-sm-0" >Assistir </button>
+            </table>
+          </div>
+                
+          
+       
       
      
          <!-- /ko -->
@@ -135,10 +152,11 @@
 
 
     <div align="center" >
-    <button type="button" class="btn btn-outline-success"  value="1"  id="showorhide" onclick="showvideo()">Show videos</button>
+    <button type="button" class="btn btn-outline-success"  value="0"  id="showorhide" onclick="showvideo(id)"> videos</button>
     </div>
     <br>
-    </di>
+    </div>
+
 
 
 
@@ -185,29 +203,28 @@
 
                  
             
+               
+                <h1 >Comentários </h1>
                 
-                <h1>Comentários </h1>
-              
-                <!-- ko if:resultados().length ==0 -->
-                <h5>Sem comentarios</h5>
-                <!-- /ko -->
-                <!-- ko if:resultados().length > 0 -->
-                <div  data-bind="foreach: resultados" class="comment mt-4 text-justify float-left"> 
+                
+                
+           
+                <div  data-bind="foreach: resultados" id="idcomentarios" class="comment mt-4 text-justify float-left"> 
                     <hr class="border-bottom-muted" />
                     <img data-bind="attr: { src: avatar_path }" alt="" class="rounded-circle" width="40" height="40">
-                    <h4 data-bind="text:author"></h4> <span data-bind="text: created_at"></span> <br> 
+                    <h4 data-bind="text:author" id="author"></h4> <span data-bind="text: created_at"></span> <br> 
                     <p data-bind="text:content" ></p>
                 </div>
 
-                <!-- /ko -->
   
             </div>
-            
+           
        
         
         </div>
 
-
+        
+    </div>
      
            
   
