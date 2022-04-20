@@ -26,6 +26,7 @@
         self.videos= ko.observable('');
         self.keys= ko.observable('');
         self.tipo= ko.observable('');
+        self.poster_path=ko.observable('');
         self.getDateAdded = () => {
            // console.log('date added', self.dateAdded());
             if (self.dateAdded() == null) return '';
@@ -36,7 +37,7 @@
             var year = d.getFullYear();
             return day.pad(2) + '/' + month.pad(2) + '/' + year.pad(4);
         }
-
+        const api_img_url = 'https://image.tmdb.org/t/p/w500/';
 
         self.activate = function (id) {
 
@@ -78,16 +79,18 @@
                 self.rating(data.vote_average)
                 self.overview(data.overview)
                 if(type=="tv"){
-                    self.tipo="tv"
+                    self.tipo("tv")
 
                     //series em implementacao api ex:( https://fsapi.xyz/tv-tmdb/60735-5-1) tmdbid-temporada-episodio
                      self.name(data.name);
                      self.dateAdded(data.first_air_date);
                      self.duration(data.episode_run_time+" mim");
-                     tmdbImage(data.name,"tv", false);                        
-                    
-                    console.clear()
+                     
+                     self.poster_path(api_img_url+data.poster_path)
+                                     
 
+                    console.clear()
+                    console.log( self.poster_path())
                     getreviews(data.id,"tv")
                    
 
@@ -96,17 +99,19 @@
                 }
 
                 if(type=="movie"){
-                self.tipo="movie"
+                self.tipo("movie")
                 self.name(data.title);
                 self.dateAdded(data.release_date);
-                tmdbImage(data.title,"movie", false);
+                self.poster_path(api_img_url+data.poster_path)
              
                 
                 self.duration(data.runtime+" mim");
              
                 self.categoria(data.genres)
-
+                
                 getreviews(data.id,"movie")
+               
+               
                    
                 }
                
@@ -119,8 +124,13 @@
                         if(result.results.length>0){
                             document.getElementById("displayvideos").style.visibility="visible";
                         }
+                        if(result.results.length==0){
+                            showvideo("hide")
+                        }
+                       
                         self.videos(result.results)
                         self.keys(result.results.key)
+                      
                       }});
 
 
@@ -136,18 +146,7 @@
         };
         console.clear()
         
-        self.enlargeImage = function (name) {
-
-            var id = getIMDbSlug(name);
-            
-
-            if (id == '') return;
-
-            var image = document.getElementById(id);
-
-            image.classList.toggle('img-modal');
-            hideLoading();
-        }
+        
     };
 
     

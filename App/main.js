@@ -46,15 +46,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'bootstrap'],
 const imdb_api_url = 'https://sg.media-imdb.com/suggests/';
 const imdb_url = 'https://www.imdb.com/';
 var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-function getIMDbURL(name) {
-    name = getIMDbSlug(name);
-    return imdb_api_url + name[0] + "/" + name + ".json";
-}
 
 
-function getIMDbSlug(title) {
-    return title.trim().normalize("NFKD").replaceAll(/[^\-\w\s]/gi, '').trim().replaceAll(' ', '-').toLowerCase();
-}
 
 function ajaxHelper(uri, method, data) {
     return $.ajax({
@@ -69,50 +62,8 @@ function ajaxHelper(uri, method, data) {
     });
 };
 
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
-
-    for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
-
-        if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-        }
-    }
-};
-
-function getIMDbIndex(data, name) {
-    try {
-
-        if (data.d.length == 0) return;
-
-    } catch (err) {
-      //  console.error("getIMDbImage ERROR: ", err);
-        return;
-    }
 
 
-    if (data.d.length > 1 && name != null) {
-
-        index = data.d.findIndex(i => i.l.toLowerCase() === name.toLowerCase());
-
-        if (index == -1)
-            return;
-
-    }
-    else
-        index = 0;
-
-    return index;
-}
-
-function getIMDbImage(data, index) {
-
-    return data.d[index].i[0];
-}
 
 function showLoading() {
     console.log('show   ');
@@ -131,7 +82,30 @@ function hideLoading() {
 
 //filmes favoritos
 
+function showvideo(conter){
+    if(conter=="hide"){
+        document.getElementById("showorhide").style.display="none"
+        return
+    }
+    var value = parseInt(document.getElementById('showorhide').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('showorhide').value = value;
+    
+    let check= value % 2
 
+    if(check==0){
+        document.getElementById('videoscard').style.display='grid'
+        document.getElementById("showorhide").innerHTML="Hide videos"
+    }
+    else{
+        document.getElementById('videoscard').style.display='none'
+        document.getElementById("showorhide").innerHTML="Show videos"
+    }
+   
+    
+    // document.getElementById('videoscard').style.display='grid'
+}
 
 function cleanfav(){
 
@@ -146,9 +120,9 @@ function cleanfav(){
 }
 
 
-function myFunction(id,name,any) {
+function myFunction(id,name,any,poster_path) {
     
-
+    console.log(poster_path)
    var icon=document.getElementById("ic"+id)
    
    if(localStorage.getItem(name)==null){
@@ -318,7 +292,6 @@ function getreviews(id,any){
     self.pics=ko.observableArray('');
     
     $.ajax({url: link, success: function(data){
-       
        
         for (var i in data.results) {
             

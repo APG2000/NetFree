@@ -12,7 +12,7 @@
                 </div>
             </div>
 
-            <img class="detailsPoster" data-bind="attr: { 'id': getTMDbSlug(name()) }"  />
+            <img class="detailsPoster" data-bind="attr: { src:poster_path }"  />
 
             <div align="center" >
                 <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Assistir </button>
@@ -98,7 +98,7 @@
 
     
     <div>
-         <!-- ko if:tipo != "movie" -->
+         <!-- ko if:tipo() =="tv" -->
         
 
          <hr class="border-bottom-muted" />
@@ -120,6 +120,8 @@
     https://www.2embed.ru/embed/tmdb/movie?id=634649 no ads?
     -->
     <!-- 16:9 aspect ratio -->
+
+
 <div class="embed-responsive embed-responsive-16by9" id="showfilme" style="display: none;" >
    <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://www.2embed.ru/embed/tmdb/movie?id='+id() }"    allowfullscreen allow='autoplay'           ></iframe>
   </div>
@@ -133,10 +135,12 @@
 
 
     <div align="center" >
-    <button type="button" class="btn btn-outline-success"  onclick="document.getElementById('videoscard').style.display='grid'">Show videos</button>
+    <button type="button" class="btn btn-outline-success"  value="1"  id="showorhide" onclick="showvideo()">Show videos</button>
     </div>
     <br>
-</di>
+    </di>
+
+
 
     <div id="videoscard" class="cards" data-bind="foreach: videos" style="display: none;">
 
@@ -178,15 +182,24 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-5 col-md-6 col-12 pb-4">
-                <h1>Comments</h1>
-                
-                <div  data-bind="foreach: resultados" class="comment mt-4 text-justify float-left"> 
 
-                   
+                 
+            
+                
+                <h1>Comentários </h1>
+              
+                <!-- ko if:resultados().length ==0 -->
+                <h5>Sem comentarios</h5>
+                <!-- /ko -->
+                <!-- ko if:resultados().length > 0 -->
+                <div  data-bind="foreach: resultados" class="comment mt-4 text-justify float-left"> 
+                    <hr class="border-bottom-muted" />
                     <img data-bind="attr: { src: avatar_path }" alt="" class="rounded-circle" width="40" height="40">
                     <h4 data-bind="text:author"></h4> <span data-bind="text: created_at"></span> <br> 
                     <p data-bind="text:content" ></p>
                 </div>
+
+                <!-- /ko -->
   
             </div>
             
