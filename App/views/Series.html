@@ -1,19 +1,23 @@
 ﻿<section>
     <!--this is series page -->
     <div class="pt-4 pb-2 mb-3">
-        <h2 class="text-center">Populares
+        <h2 class="text-center">Series
 
 
             <a class="btn btn-link" onclick="showfav()">
-                <i class="fa fa-eye" title="show all favs in Trending"aria-hidden="true"></i>           
+                <i class="fa fa-eye" title="Show all favs"aria-hidden="true"></i>           
             </a>
 
 
             
-        <form>
-            <input type="text" id="number" value="1"/>
-            <input type="button" style="background-color:gray" onclick="incrementValue('tv')" value="Show page series" />
-         </form>
+            <div style="margin-top: 10px; " class="cursor">
+                <input type="text" class="circle" id="number" value="1" style="caret-color: transparent" data-bind="attr: { max:self.total_pages() }" onmouseleave=" this.style.caretColor='transparent'" onmouseenter=" this.style.caretColor='red'"/>
+                <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('tv')" value="Next page" />
+                <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('Previous/tv')" value="Previous page" />
+                
+               
+            </div>
+      
   
 
         </h2 >
@@ -26,7 +30,7 @@
         
         <div class="card "   data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)">
 
-            <img  onclick="location.href='#TitleDetails/'+id+'/'+'tv';" style="height: 350px" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
+            <img  onclick="location.href='#TitleDetails/'+id+'/'+'tv';" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
            
             <div class="card-body " >
                 <h4 class="card-title" data-bind="text:name"></h4>
@@ -36,14 +40,15 @@
                    
                      
                    <h10 data-bind="text:first_air_date"></h10> 
-                    
-                  
-                
-                     
 
                         <br>
-                    <i class="fa fa-star" data-bind="text:vote_average" aria-hidden="true"></i>
-                    
+                        
+                        <i class="fa fa-star"  aria-hidden="true">
+                       
+                        </i>
+                        <a data-bind="text:vote_average">
+                           
+                        </a>                    
                     <a data-bind="attr: { id:id , name:name}" class="btn btn-link" onclick="myFunction(id,name,'tv')"    >
                         
                         <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>

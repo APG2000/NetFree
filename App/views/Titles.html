@@ -1,19 +1,22 @@
 ﻿<section>
     <div class="pt-4 pb-2 mb-3">
-        <h2 class="text-center">Populares
+        <h2 class="text-center">Filmes 
 
 
             <a class="btn btn-link" onclick="showfav()">
-                <i class="fa fa-eye" title="show all favs in Trending"aria-hidden="true"></i>           
+                <i class="fa fa-eye" title="Show all favs "aria-hidden="true"></i>           
             </a>
 
-
+        
+        <div style="margin-top: 10px;">
+            <input type="text" class="circle" id="number" value="1" style="caret-color: transparent" data-bind="attr: { max:self.total_pages() }" onmouseleave=" this.style.caretColor='transparent'" onmouseenter=" this.style.caretColor='red'"/>
+            <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('movie')" value="Next page" />
+            <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('Previous/movie')" value="Previous page" />
             
-        <form>
-            <input type="text" id="number" value="1"/>
-            <input type="button" style="background-color:gray" onclick="incrementValue()" value="Show page movies" />
-         </form>
+           
+        </div>
   
+      
 
         </h2 >
         
@@ -21,12 +24,12 @@
 
       
      
-    <div class="cards" data-bind="foreach: records">
+        <div class="cards" data-bind="foreach: records" >
         
-        <div class="card "   data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)">
+        <div class="card" data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)"   >
 
             
-            <img  onclick="location.href='#TitleDetails/'+id;" style="height: 350px" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
+            <img  onclick="location.href='#TitleDetails/'+id;"  data-bind="attr: { src: api_img_url + poster_path, id: id } "  />
            
             <div class="card-body " >
                 <h4 class="card-title" data-bind="text:title"></h4>
@@ -34,7 +37,12 @@
                 <p class="card-text" >
                     <h10 data-bind="text:release_date"></h10>
                         <br>
-                    <i class="fa fa-star" data-bind="text:vote_average" aria-hidden="true"></i>
+                    <i class="fa fa-star"  aria-hidden="true">
+                       
+                    </i>
+                    <a data-bind="text:vote_average">
+                       
+                    </a>
                     
                     <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')"    >
                         
@@ -50,6 +58,8 @@
               
                 
               </div>
+
+              
          </div>
         
     </div>

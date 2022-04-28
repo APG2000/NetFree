@@ -6,10 +6,10 @@
             <h2 data-bind="text:displayName"></h2>
         </div>
 
-        <form class="form-inline my-2 my-lg-0  search">
+        <form class="form-inline my-2 my-lg-0  search" id="target" >
             <div class="form-group btn-group-sm bg-dark">
-                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" data-bind="value: query">
-                <button data-bind="click: getTitles" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                <input id="formoriginalinput"class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" data-bind="value: query">
+                <button id="formoriginalbtn"data-bind="click: getTitles" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </div>
         </form>
 
@@ -33,16 +33,18 @@
                 <tr class="t-row">
                     <td class="imgTd">
                         <a data-bind="attr: { href:'#TitleDetails/'+id+'/'+media_type }">
-                            <img class="imagePoster" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
+                            <img class="card" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
+
                         </a>
                     </td>
                     <td scope="row" class="">
 
-                      
-                    
                         <h4 data-bind="text: name"></h4>
                     
                     </td>
+                    
+
+                    
 
                     
                     <td class="d-none d-md-block" data-bind="text:overview" id="desc"></td>

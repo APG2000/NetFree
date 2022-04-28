@@ -2,7 +2,7 @@
 
 <section>
     
-    <div class="container details">
+    <div class="container ">
             <div class="pt-4 pb-1 mb-3">
                 
                 <h1 data-bind="text: name()"  style="text-align: center;"></h1>
@@ -16,8 +16,9 @@
             <img class="detailsPoster" data-bind="attr: { src:poster_path }"  />
 
             <div align="center" >
-                <button   id="verfilmebtn" type="button" class="btn btn-outline-success"  onclick="verfilme()">Assistir </button>
+                <button   id="verfilmebtn" type="button" class="btn btn-outline-success" style="margin-top: 30px;" onclick="verfilme()">Assistir </button>
             </div>
+            
 
         
         <div id="modal" align="center" style=display:none ="center" class="bs-example">
@@ -49,23 +50,13 @@
 
         
             <hr class="border-bottom-muted" />
-            <!-- ko if:categories().length > 0 -->
-            <h6>Categories</h6>
-            <div data-bind="foreach: categories">
-                <div>
-                    <i class="icon mr-1 fa fa-bookmark-o"></i>
-                    <span data-bind="text: Name "></span>
-                    
-                </div>
-            </div>
 
-            <!-- /ko -->
             <!-- ko if:categoria().length > 0 -->
             <h6>Categories</h6>
             <div data-bind="foreach: categoria">
-                <div>
+                <div  data-bind="attr: { name:name}"  onclick="getpercategories(name)">
                     <i class="icon mr-1 fa fa-bookmark-o"></i>
-                    <span data-bind="text: name "></span>
+                    <a data-bind="text:name "></a>
                     
                 </div>
             </div>
@@ -74,7 +65,7 @@
             <!-- /ko -->
             <!-- ko if:dateAdded() != null -->
 
-            <h6>Added on</h6>
+            <h6 id="releasestate">Added on</h6>
             <span data-bind="text: getDateAdded()"></span>
 
             <hr class="border-bottom-muted" />
@@ -93,10 +84,25 @@
             <span data-bind="text: rating"></span>
             <!-- /ko -->
             <!-- /ko -->
+
+             
+           
+            <a data-bind="attr: { id:id , name:name}" class="btn btn-link" onclick="titledeatisfav(id,name,location.href)"    >
+                        
+                <i id='ic' title="adicionar a favoritos"  onmouseenter=""class="fa fa-heart" aria-hidden="true"></i>
             
+            </a>
 
+            
+            <div class="alert alert-success" id="success-alert" style="display: none; width: 50%;">
+                <strong data-bind="text:name() +' foi adicionado aos favoritos'"> </strong> 
+            </div>
+            <div class="alert alert-danger" id="danger-alert" style="display: none; width: 50%;">
+                <strong data-bind="text:name() +' foi removido dos favoritos'"> </strong> 
+              </div>
+              
     </div>
-
+    
     
     <div>
          <!-- ko if:tipo() =="tv" -->
@@ -121,6 +127,7 @@
                 </table>
                 <br>
                 <button data-bind="click: showserie(id())" class="btn btn-outline-primary my-2 my-sm-0" >Assistir </button>
+              
             </table>
           </div>
                 
@@ -140,7 +147,7 @@
 
 
 <div class="embed-responsive embed-responsive-16by9" id="showfilme" style="display: none;" >
-   <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://www.2embed.ru/embed/tmdb/movie?id='+id() }"    allowfullscreen allow='autoplay'           ></iframe>
+  <iframe id="verfilme" class="embed-responsive-item"   data-bind="attr: { src: 'https://www.2embed.ru/embed/tmdb/movie?id='+id() }" onmouseenter="removeads()"   allowfullscreen allow='autoplay'  ></iframe> 
   </div>
   <di>
     <hr class="border-bottom-muted" />
@@ -203,7 +210,7 @@
 
                  
             
-               
+               <!-- ko if:resultados() != null -->
                 <h1 >Comentários </h1>
                 
                 
@@ -216,7 +223,7 @@
                     <p data-bind="text:content" ></p>
                 </div>
 
-  
+     <!-- /ko -->
             </div>
            
        
