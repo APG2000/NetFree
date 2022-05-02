@@ -1,97 +1,60 @@
 ﻿
-<section >
-    <div class="pt-4 pb-2 mb-3">
-        <h2 class="text-center" >Trending Movies
 
-           
+
+
+    
+<section>
+   
+    <div style="margin-top: 10px;">
+        <h2 class="text-center">Trending 
 
             <a class="btn btn-link" onclick="showfav()">
-                <i class="fa fa-eye" title="show all favs in Trending"aria-hidden="true"></i>           
+                <i class="fa fa-eye" title="Show all favs "aria-hidden="true"></i>           
             </a>
-
-        </h2 >
-        
-        <hr class="border-bottom-muted" />
-
-      
-     
-    
-  
-
-    <div class="cards" data-bind="foreach: records" >
-        
-                
-        <div class="card"   data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)">
-
-            
-            <img  onclick="location.href='#TitleDetails/'+id;"  data-bind="attr: { src: api_img_url + poster_path, id: id } " />
-           
-            <div class="card-body " >
-                <h4 class="card-title" data-bind="text:title"></h4>
-                
-                <p class="card-text" >
-                    <h10 data-bind="text:release_date"></h10>
-                        <br>
-                    <i class="fa fa-star"  aria-hidden="true">
-                       
-                    </i>
-                    <a data-bind="text:vote_average">
-                       
-                    </a>
-                    
-                    <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')"    >
-                        
-                        <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>
-                    
-                    </a>
-
-                   
-
-                   
-                </p>
-               
-              
-                
-              </div>
-         </div>
-        
     </div>
+
+
+
     <hr class="border-bottom-muted" />
+    <div class="container mt-4">
+        
+        <div class="row" data-bind="foreach: records">
+                  <!-- ko if:poster_path-->
 
-    <div class="p-3">
-        <div class="bs-callout bs-callout-info bg-dark">
-            <div id="carouselPopular" class="carousel slide w-100" data-ride="carousel" data-interval="3000" data-pause="false" >
-                <!--<ol class="carousel-indicators" data-bind="foreach: upcoming">
-                <li data-target="#carouselPopular" data-bind="attr: { 'data-slide-to': $index() }, style: { 'active': $index() == 0 }"></li>
-            </ol>-->
-                <div class="carousel-inner" data-bind="foreach: upcoming">
-                    <!-- ko ifnot: backdrop_path == null -->
-                    <div class="carousel-item" data-bind="css: { 'active': $index() == 0 }">
-                        <img class="d-block w-100" data-bind="attr: { src: api_img_url + backdrop_path, alt: original_title }" />
-                        <div class="carousel-caption d-none d-md-block">
-                            <img style="height: 400px;" onclick="location.href='#TitleDetails/'+id;"  data-bind="attr: { id:id , src: api_img_url + poster_path, alt: original_title }" />
-                            <hr class="border-bottom-muted" />
-                            <h5 data-bind="text: original_title"></h5>
-                            <p>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <span data-bind="text: vote_average"></span> - <span data-bind="text: getDate(release_date)"></span>
-                            </p>
-                        </div>
+            <div class="col-auto mb-3">
+                <div class="card" style="width: 150px" data-bind="attr: { id:'card'+id }" class="btn btn-link"  onmouseenter="cardhide(id)" onmouseleave="cardshow(id)" >
+                    
+                    
+                    <img    onclick="location.href='#TitleDetails/'+id;" style="height: 260px; width: 150px" class="card-img-top" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
+
+                    <div class="card-body">
+                        
+                        <h5 class="card-title" data-bind="text:title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <h10 data-bind="text:release_date"></h10>
+
+                        <p class="card-text" >
+                          
+                            <i class="fa fa-star" aria-hidden="true">
+                       
+                            </i>
+                            <span data-bind="text:vote_average">
+                               
+                            </span>
+                            <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')">
+                        
+                                <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>
+                            
+                            </a>
+                           
+                        </p>
+
                     </div>
-                    <!-- /ko -->
+                  
                 </div>
-                <a class="carousel-control-prev" href="#carouselPopular" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselPopular" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
-        </div>
-       
+              <!--/ko-->
         </div>
     </div>
-
     
+</section>

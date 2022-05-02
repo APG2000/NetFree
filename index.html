@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+   
     <title>NETFREE</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -20,23 +21,33 @@
     <link href="vendors/Content/myApp.css" rel="stylesheet" />
     <link href="App/style/main.css" rel="stylesheet" />
 </head>
-<body id="body" class="bg-dark text-light">
+<body id="body" class="bg-dark text-light" >
     <div id="applicationHost"></div>
     <!--<script src="cordova.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
     <script src="vendors/Scripts/jquery-3.4.1.min.js"></script>
     <script src="vendors/Scripts/knockout-3.5.1.js"></script>
     <script src="vendors/Scripts/require.js" data-main="App/main"></script>
     <script src="App/tmdb.js"></script>
 
-
-    <footer class="navbar-dark " id="footer">
+    <footer class="navbar-dark " id="footer" >
     <div class="container" >
         <div class="navbar-text small">
             <h6 class="m-0">NETFREE</h6>
             Made By <a href="https://www.instagram.com/_dovas_/" rel="noreferrer noopener" target="_blank" >Airton Moreira </a> 
         </div>
-       
+     
     </div>
+
+    <button
+        type="button"
+        class="btn btn-danger btn-floating btn-lg"
+        id="btn-back-to-top"
+        >
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+
+    </button>
 </footer>
 
 </body>

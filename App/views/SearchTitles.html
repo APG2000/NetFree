@@ -1,86 +1,52 @@
 ﻿<link rel="stylesheet" href="App/style/titles.css" />
 
+
+
 <section>
-    <div class="container">
-        <div class="pt-4 pb-1 mb-3">
-            <h2 data-bind="text:displayName"></h2>
+
+    <form class="form-inline my-2 my-lg-0  search" id="target" >
+        <div class="form-group btn-group-sm bg-dark">
+            <input id="formoriginalinputs"class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" data-bind="value: query">
+            <button id="formoriginalbtns"data-bind="click: getTitles" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
         </div>
+    </form>
 
-        <form class="form-inline my-2 my-lg-0  search" id="target" >
-            <div class="form-group btn-group-sm bg-dark">
-                <input id="formoriginalinput"class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search" data-bind="value: query">
-                <button id="formoriginalbtn"data-bind="click: getTitles" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+    <hr class="border-bottom-muted" />
+    <div class="container mt-4">
+        <div class="row" data-bind="foreach: records">
+              <!-- ko if:media_type != 'person' -->
+              <!-- ko if:poster_path-->
+            <div class="col-auto mb-3">
+                <div class="card" style="width: 150px">
+                    
+                    <a data-bind="attr: { href:'#TitleDetails/'+id+'/'+media_type }">
+                        <img  style="height: 260px; width: 150px" class="card-img-top" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
+
+                    </a>
+                    <div class="card-body">
+                        
+                        <h5 class="card-title" data-bind="text: name"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted" data-bind="text:media_type"></h6>
+                        <p class="card-text" >
+                          
+                            <i class="fa fa-star" aria-hidden="true">
+                       
+                            </i>
+                            <span data-bind="text:vote_average">
+                               
+                            </span>
+                           
+                        </p>
+
+
+                       
+                    </div>
+                  
+                </div>
             </div>
-        </form>
-
-        <hr class="border-bottom-muted" />
-
-        <!-- ko if:records().length > 0 -->
-
-        <!--<div class="clearfix"></div>-->
-
-        <table class="table text-light">
-            <thead class="thead">
-                <tr>
-                    <th scope="col">Poster</th>
-                    <th scope="col">Title</th>
-                    <th class="d-none d-lg-block" scope="col">Description</th>
-                    <th scope="col">Type</th>
-                    <th scope="col" class="text-right"></th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: records">
-                <tr class="t-row">
-                    <td class="imgTd">
-                        <a data-bind="attr: { href:'#TitleDetails/'+id+'/'+media_type }">
-                            <img  style="height: 100px; width: 65px" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
-
-                        </a>
-                    </td>
-                    <td scope="row" class="">
-
-                        <h4 data-bind="text: name"></h4>
-                    
-                    </td>
-                    
-
-                    
-
-                    
-                    <td class="d-none d-md-block" data-bind="text:overview" id="desc"></td>
-                    <td data-bind="text:media_type"></td>
-                    <td class="text-right text-white">
-                     
-                    <a data-bind="attr: { href:'#TitleDetails/'+id+'/'+media_type}" class="btn btn-link">
-                            <i data-bind="attr: { id:'ip'+id }" class="fa fa-info" aria-hidden="true"></i>
-                        </a>
-
-                        
-                        
-                        <a data-bind="attr: { id:id , name:name ,type:media_type}" class="btn btn-link" onclick="myFunction(id,name,type)">
-                            <i data-bind="attr: { id:'ic'+id }"   class="fa fa-heart" aria-hidden="true"></i>
-
-
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- /ko -->
-        <!-- ko ifnot:records().length > 0 -->
-        <!-- ko ifnot:first() -->
-        <h3 data-bind="text:notFound()[0]"></h3>
-        <!-- ko ifnot:error != '' -->
-        <p>
-            <span data-bind="text:notFound()[1]"></span>
-            <br />
-            <span data-bind="text:error"></span>
-        </p>
-        <!-- /ko -->
-        <!-- /ko -->
-        <!-- /ko -->
-
-
+                <!--/ko-->
+               <!--/ko-->
+        </div>
     </div>
+    
 </section>

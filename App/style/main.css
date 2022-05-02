@@ -224,3 +224,13 @@ padding-top: 20px;
   body::-webkit-scrollbar {
     width: 12px;               /* width of the entire scrollbar */
   }
+
+  #btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+
+    border-radius: 50%;
+    
+  }

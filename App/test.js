@@ -1,1 +1,22 @@
-const _0x4ef01b=_0x259f;function _0x4285(){const _0x25bdcb=['/:name','get','65016YwfPVM','2156140gKIYUR','server\x20is\x20listening\x20on\x20port\x202020','cors','359566EHJxCf','listen','19163664Qjzuki','json','812clwbAy','6864180ITlrdD','941421Flkaea','65382fhhjcb','express','Hello\x20World'];_0x4285=function(){return _0x25bdcb;};return _0x4285();}function _0x259f(_0x1304e1,_0x1620d1){const _0x4285d4=_0x4285();return _0x259f=function(_0x259f05,_0x3bd867){_0x259f05=_0x259f05-0x1ef;let _0x341607=_0x4285d4[_0x259f05];return _0x341607;},_0x259f(_0x1304e1,_0x1620d1);}(function(_0x2f1793,_0x598ccd){const _0x1a4b29=_0x259f,_0x23adde=_0x2f1793();while(!![]){try{const _0x3c4039=parseInt(_0x1a4b29(0x1f0))/0x1+parseInt(_0x1a4b29(0x1fa))/0x2+-parseInt(_0x1a4b29(0x1f6))/0x3+-parseInt(_0x1a4b29(0x1f7))/0x4+parseInt(_0x1a4b29(0x1ef))/0x5+parseInt(_0x1a4b29(0x1f1))/0x6*(parseInt(_0x1a4b29(0x1fe))/0x7)+-parseInt(_0x1a4b29(0x1fc))/0x8;if(_0x3c4039===_0x598ccd)break;else _0x23adde['push'](_0x23adde['shift']());}catch(_0x50cf99){_0x23adde['push'](_0x23adde['shift']());}}}(_0x4285,0xc3c87));const express=require(_0x4ef01b(0x1f2)),cors=require(_0x4ef01b(0x1f9)),app=express();app[_0x4ef01b(0x1f5)]('/',(_0x3ebecc,_0x3a311a)=>{const _0x3d6bff=_0x4ef01b;_0x3a311a[_0x3d6bff(0x1fd)]({'message':_0x3d6bff(0x1f3)});}),app[_0x4ef01b(0x1f5)](_0x4ef01b(0x1f4),(_0xc6c82f,_0x22c16d)=>{const _0x176c55=_0x4ef01b;let _0x45fca9=_0xc6c82f['params']['name'];_0x22c16d[_0x176c55(0x1fd)]({'message':'Hello\x20'+_0x45fca9});}),app[_0x4ef01b(0x1fb)](0x7e4,()=>{const _0x502b05=_0x4ef01b;console['log'](_0x502b05(0x1f8));});
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Hello World'
+    });
+});
+
+app.get('/:name', (req, res) => {
+    let name = req.params.name;
+
+    res.json({
+        message: `Hello ${name}`
+    });
+});
+
+app.listen(2020, () => {
+    console.log('server is listening on port 2020');
+});

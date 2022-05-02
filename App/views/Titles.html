@@ -1,68 +1,65 @@
-﻿<section>
-    <div class="pt-4 pb-2 mb-3">
+﻿
+    
+
+
+<section>
+
+    
+    
+    <div style="margin-top: 10px;">
         <h2 class="text-center">Filmes 
 
 
             <a class="btn btn-link" onclick="showfav()">
                 <i class="fa fa-eye" title="Show all favs "aria-hidden="true"></i>           
             </a>
-
+        <br>
+        <input type="text" class="circle" id="number" value="1" style="caret-color: transparent" data-bind="attr: { max:self.total_pages() }" onmouseleave=" this.style.caretColor='transparent'" onmouseenter=" this.style.caretColor='red'"/>
+        <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('movie')" value="Next page" />
+        <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('Previous/movie')" value="Previous page" />
         
-        <div style="margin-top: 10px;">
-            <input type="text" class="circle" id="number" value="1" style="caret-color: transparent" data-bind="attr: { max:self.total_pages() }" onmouseleave=" this.style.caretColor='transparent'" onmouseenter=" this.style.caretColor='red'"/>
-            <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('movie')" value="Next page" />
-            <input type="button" style="background-color:#222;color:white;caret-color: transparent;" onclick="incrementValue('Previous/movie')" value="Previous page" />
-            
-           
-        </div>
-  
-      
-
-        </h2 >
-        
-        <hr class="border-bottom-muted" />
-
-      
-     
-        <div class="cards" data-bind="foreach: records" >
-        
-        <div class="card" data-bind="attr: { id:'card'+id }" class="btn btn-link" onmouseenter="cardhide(id)" onmouseleave="cardshow(id)"   >
-
-            
-            <img  onclick="location.href='#TitleDetails/'+id;"  data-bind="attr: { src: api_img_url + poster_path, id: id } "  />
-           
-            <div class="card-body " >
-                <h4 class="card-title" data-bind="text:title"></h4>
-                
-                <p class="card-text" >
-                    <h10 data-bind="text:release_date"></h10>
-                        <br>
-                    <i class="fa fa-star"  aria-hidden="true">
-                       
-                    </i>
-                    <a data-bind="text:vote_average">
-                       
-                    </a>
-                    
-                    <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')"    >
-                        
-                        <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>
-                    
-                    </a>
-
-                   
-
-                   
-                </p>
-               
-              
-                
-              </div>
-
-              
-         </div>
-        
+       
     </div>
+
     <hr class="border-bottom-muted" />
+    <div class="container mt-4">
+        <div class="row" data-bind="foreach: records">
+                  <!-- ko if:poster_path-->
+
+            <div class="col-auto mb-3">
+                <div class="card" style="width: 150px" data-bind="attr: { id:'card'+id }" class="btn btn-link"  onmouseenter="cardhide(id)" onmouseleave="cardshow(id)" >
+                    
+                    
+                    <img    onclick="location.href='#TitleDetails/'+id;" style="height: 260px; width: 150px" class="card-img-top" data-bind="attr: { src: api_img_url + poster_path, id: id } " />
+
+                    <div class="card-body">
+                        
+                        <h5 class="card-title" data-bind="text:title"></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <h10 data-bind="text:release_date"></h10>
+
+                        <p class="card-text" >
+                          
+                            <i class="fa fa-star" aria-hidden="true">
+                       
+                            </i>
+                            <span data-bind="text:vote_average">
+                               
+                            </span>
+                            <a data-bind="attr: { id:id , name:title}" class="btn btn-link" onclick="myFunction(id,name,'movie')">
+                        
+                                <i data-bind="attr: { id:'ic'+id }" title="adicionar a favoritos"  onmouseenter="showfav()"class="fa fa-heart" aria-hidden="true"></i>
+                            
+                            </a>
+                           
+                        </p>
+
+                    </div>
+                  
+                </div>
+            </div>
+              <!--/ko-->
+        </div>
+    </div>
     
 </section>
