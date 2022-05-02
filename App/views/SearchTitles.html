@@ -17,10 +17,10 @@
               <!-- ko if:media_type != 'person' -->
               <!-- ko if:poster_path-->
             <div class="col-auto mb-3">
-                <div class="card" style="width: 150px">
+                <div class="card" style="width: 140px">
                     
                     <a data-bind="attr: { href:'#TitleDetails/'+id+'/'+media_type }">
-                        <img  style="height: 260px; width: 150px" class="card-img-top" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
+                        <img  style="height: 220px; width: 140px" class="card-img-top" data-bind="attr: { src:'https://image.tmdb.org/t/p/w500/'+poster_path, 'id': getTMDbSlug(name) }" />
 
                     </a>
                     <div class="card-body">
