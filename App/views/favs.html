@@ -21,19 +21,16 @@
                 <tr class="t-row">
                     <td class="">
                        
-                                
-                  
-                        <a  class="btn btn-link" >
-                            <span data-bind="text:name"></span>
-                        </a>
                         
-                        <a  data-bind="attr: {  name:name}" class="btn btn-link" onclick="favinfo(name)">
-                            <i class="fa fa-info" aria-hidden="true"></i>
-                        </a>
-                        <a  data-bind="attr: {  name:name}" class="btn btn-link" onclick="remove(name)">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-    
-                        </a>
+
+                        
+                        
+                        <span>
+                            <img  style="height: 100px; width: 65px;margin-right: 10px;" data-bind="attr: { id:'img'+name,src:getfavimg(name) ,name:name}"onclick="favinfo(name)" />
+                            <small data-bind="text:name,attr:{name:name}" onclick="favinfo(name)"></small>    
+                            <i class="fa fa-trash" style="margin-left: 10px;"aria-hidden="true" data-bind="attr: {  name:name}" onclick="remove(name)"></i>
+                        </span>
+                        
                         
         
                         </td>
@@ -44,7 +41,7 @@
             </tbody>
         </table>
         
-        <a id="clear"  class="btn btn-link"" style="background-color:red;"  onclick="cleanfav()"> Deletar todos</a>
+        <a id="clear"  class="btn btn-link" style="background-color:red; display: none;"  onclick="cleanfav()"> Deletar todos</a>
 
        
     </div>
