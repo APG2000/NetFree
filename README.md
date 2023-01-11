@@ -9,4 +9,4 @@ Feito na epoca com Knockout js
 
 v0.1
 
-see here -> <a>https://apg2000.github.io/NetFree/</a>
+see here -> <a target="_blank">https://apg2000.github.io/NetFree/</a>
